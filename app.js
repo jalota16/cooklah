@@ -40,6 +40,12 @@ Sortable.create(number6, {
     handle: '.my-handle',
 })
 
+Sortable.create(number7, {
+    group: {name:"DragFood", pull:'clone', put:false},
+    animation: 150,
+    handle: '.my-handle',
+})
+
 Sortable.create(cart1, {
     group: {name:"DragFood", put:true, pull:false},
     animation: 150,
