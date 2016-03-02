@@ -1,3 +1,9 @@
+Sortable.create(number0, {
+    group: {name:"DragFood", pull:'clone', put:false},
+    animation: 150,
+    handle: '.my-handle',
+})
+
 Sortable.create(number1, {
     group: {name:"DragFood", pull:'clone', put:false},
     animation: 150,
