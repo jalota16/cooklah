@@ -42,7 +42,7 @@ Sortable.create(cart1, {
         evt.item.parentNode.removeChild(evt.item);
     },
     onAdd: function (evt){
-            evt.item.innerHTML += ' <i class="js-remove">✖</i>';
+            evt.item.innerHTML += ' <i class="js-remove remove icon"></i>';
         },
 })
 
@@ -54,7 +54,7 @@ Sortable.create(cart2, {
         evt.item.parentNode.removeChild(evt.item);
     },
     onAdd: function (evt){
-            evt.item.innerHTML += ' <i class="js-remove">✖</i>';
+            evt.item.innerHTML += ' <i class="js-remove remove icon"></i>';
         },
 })
 
