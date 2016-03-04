@@ -32,6 +32,16 @@
 
   <script src="assets/library/jquery.min.js"></script>
   <script src="../dist/semantic.js"></script>
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/semantic.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script src="../dist/components/dropdown.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
 
 
   <style type="text/css">
@@ -146,10 +156,6 @@
 
   </style>
 
-  <script src="assets/library/jquery.min.js"></script>
-  <script src="../dist/components/visibility.js"></script>
-  <script src="../dist/components/sidebar.js"></script>
-  <script src="../dist/components/transition.js"></script>
   <script>
   $(document)
     .ready(function() {
@@ -171,6 +177,17 @@
       $('.ui.sidebar')
         .sidebar('attach events', '.toc.item')
       ;
+	  
+	  $('.ui.modal')
+		.modal('attach events', '.huge.blue.button', 'show')
+	  ;
+	  
+	  $('#example1').calendar({
+		  type: 'date'
+		});
+		$('#example2').calendar({
+		  type: 'date'
+		});
 
     })
   ;
@@ -282,13 +299,7 @@
           <div class="ui segment">
             <button id = "l1" class = "ui large blue button"> Select</button>
           </div>
-          <script>
-
-$("#l1").click(function() {
-  var d = 1;
-    document.getElementById("l"+d+"div").style.backgroundColor = "#1BBC9B";
-});
-</script>
+         
 
         </div>
         <div class="ui segments">
@@ -311,14 +322,21 @@ $("#l1").click(function() {
      <div class="column">
       
       <div class="ui segments">
-        <div class="ui segment">
+        <div id = "l2div" class="ui segment">
           <h3>2 Meals for $24</h3>
         </div>
         <div class="ui segments">
           <div class="ui segment">
             <button id = "l2" class = "ui large blue button"> Select</button>
           </div>
-          
+           <script>
+
+$("#l2").click(function() {
+  var d = 2;
+    document.getElementById("l"+d+"div").style.backgroundColor = "#1BBC9B";
+	 document.getElementById("numberofL2").value = 2;
+});
+</script>
         </div>
         <div class="ui segments">
         <div class="ui segment">
@@ -326,7 +344,7 @@ $("#l1").click(function() {
        <div class="ui left icon input">
 
             <i class="user icon"></i>
-          <input style = "max-width:100px;" type="number" name="noOfPeople" placeholder="1">
+          <input id = "numberofL2" style = "max-width:100px;" type="number" name="noOfPeople" placeholder="1">
           <br/>
            <br/>
         </div>
@@ -524,6 +542,10 @@ $("#l1").click(function() {
     </div>
     
   </div>
+  
+  
+  
+  
    
 </div>
 <div class = "ui container">
@@ -536,52 +558,78 @@ $("#l1").click(function() {
     </div>
      <div class="column">
 <div class="right item">
-   <a href ="login.html" class="ui large button disabled">Back</a>
-         <a href ="choose_dates.html" id = "dates" class="ui large blue button">Next</a>
+   <a href ="homepage.html" class="ui huge button">Back</a>
+         <a href ="#" id = "dates" class="ui huge blue button">Next</a>
+		 <div class="ui modal">
+			  <h2 class="ui header">Choose Dates</h2>
+			  <p style="margin: 20px">All dates should be within 4 weeks  from now, starting from tomorrow</p>
+			  <div class="ui two column grid" style="margin:20px">
+			  <div class="column">
+      
+			  <div class="ui segments">
+				<div class="ui segment">
+				  <h3>Meal 1</h3>
+				</div>
+				
+				<div class="ui segment">
+				   <p>Date:</p>
+			   <div class="ui calendar" id="example1">
+				<div class="ui input left icon">
+				  <i class="calendar icon"></i>
+				  <input type="text" placeholder="Date/Time">
+				</div>
+			  </div>
+				 </div>
+			   
+			  </div>
+
+			</div>
+			<div class="column">
+      
+			  <div class="ui segments">
+				<div class="ui segment">
+				  <h3>Meal 2</h3>
+				</div>
+				
+				<div class="ui segment">
+				   <p>Date:</p>
+			   <div class="ui calendar" id="example2">
+				<div class="ui input left icon">
+				  <i class="calendar icon"></i>
+				  <input type="text" placeholder="Date/Time">
+				</div>
+			  </div>
+				 </div>
+			   
+			  </div>
+
+			</div>
+			</div>
+			  
+			  <div class="actions">
+				<button id = "back" class="ui large button">Back</button>
+				  
+				<script>
+				$("#back").click(function() {
+					$('.ui.modal')
+					.modal('hide')
+						;
+				var d = 2;
+				document.getElementById("l"+d+"div").style.backgroundColor = "#1BBC9B";
+				document.getElementById("numberofL2").value = 2;
+				});
+				</script>
+				<a href="choose_meals.html" class="ui large blue button">
+				  Next
+				</a>
+			  </div>
+			</div>
          
         </div>
          </div>
           </div>
            </div>
 
-</div>
-<script>
-$("#dates").click(function() {
-  $('.ui.modal')
-  .modal('show dimmer','true')
-  .dimmer({
-  closable : true,
-  useCSS   : true
-});
-  });
-
-
-</script>
-<div class="ui basic modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Archive Old Messages
-  </div>
-  <div class="image content">
-    <div class="image">
-      <i class="archive icon"></i>
-    </div>
-    <div class="description">
-      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="two fluid ui inverted buttons">
-      <div class="ui red basic inverted button">
-        <i class="remove icon"></i>
-        No
-      </div>
-      <div class="ui green basic inverted button">
-        <i class="checkmark icon"></i>
-        Yes
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- Content JS HERE !-->
