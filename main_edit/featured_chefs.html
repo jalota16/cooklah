@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>CookLah!</title>
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/form.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/input.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+  <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/semantic.js"></script>
+
+  <style type="text/css">
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+    #main-header {
+  background: url("assets/images/homepage.png") no-repeat scroll  rgba(0, 0, 0, 0.45);
+
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 700px;
+  width: 100%;
+  
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+}
+
+
+
+
+  </style>
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  <script src="../dist/components/sidebar.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a href = "homepage.html" class="item">Home</a>
+    <a class="item" href = "all_plans.html">Plans</a>
+        <a href = "weekly_menu.html" class="item">Weekly Menu</a>
+        <a href = "featured_chefs.html" class="active item">Featured Chefs</a>
+     
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button">Log in</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="item">Home</a>
+  <a class="item" href = "all_plans.html">Plans</a>
+        <a class="item">Weekly Menu</a>
+        <a class="active item">Featured Chefs</a>
+        
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div style = "color:#FFFFFF !important;" class="ui large secondary pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a href ="homepage.html" class="item">Home</a>
+        <a class=" item" href = "all_plans.html">Plans</a>
+        <a href ="weekly_menu.html" class="item">Weekly Menu</a>
+        <a class="active item">Featured Chefs</a>
+    
+        <div class="right item">
+          <a href ="login.html" class="ui button">Log in</a>
+          <a class="ui button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+<br/>
+<div id = "Grid">
+    
+    
+    <h3 class="ui header">Featured Chefs</h3>
+      <p> Our featured celebrity chefs for the week hand pick their favourite recipies for you to cook</p>
+
+<div class = "ui container">
+    
+    
+    
+  <h2 class="ui header">6th March - 13th March</h2>
+ <div class="ui four cards">
+   <div class="ui card">
+    <div class="ui slide right reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/af/5f/a8/af5fa872934889cdabbb24e1a1beb256.jpg">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/ab/8f/7b/ab8f7b626ec328f186feedba550b74f6.jpg">
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  
+     <div class="ui card">
+    <div class="ui slide right reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/ab/8f/7b/ab8f7b626ec328f186feedba550b74f6.jpg">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/af/5f/a8/af5fa872934889cdabbb24e1a1beb256.jpg">
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  
+  
+     <div class="ui card">
+    <div class="ui slide right reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/f5/a7/8e/f5a78e121462d6143dca72ca6a4c36d3.jpg">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/ab/8f/7b/ab8f7b626ec328f186feedba550b74f6.jpgs">
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  
+     <div class="ui card">
+    <div class="ui slide right reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="https://www.scmp.com/sites/default/files/styles/236w/public/2015/08/21/94becb549e1eb0544d639c277229a065.jpg?itok=4HR5FFwY">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="https://s-media-cache-ak0.pinimg.com/236x/f5/a7/8e/f5a78e121462d6143dca72ca6a4c36d3.jpg">
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  
+  
+  
+  </div>
+  
+  
+  
+<br>
+      
+  </div>
+
+<!-- Content JS HERE !-->
+<style>
+  .last.container {
+    margin-bottom: 300px !important;
+  }
+  h1.ui.center.header {
+    margin-top: 3em;
+  }
+  h2.ui.center.header {
+    margin: 4em 0em 2em;
+  }
+  h3.ui.center.header {
+    margin-top: 2em;
+    padding: 2em 0em;
+  }
+</style>
+  </div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About Us</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+           
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Featured Chefs</a>
+            <a href="#" class="item">Learn how to cook</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Discover Us On</h4>
+           <a href="https://www.facebook.com/servicestall" target="_blank"><i class="fa fa-lg fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
