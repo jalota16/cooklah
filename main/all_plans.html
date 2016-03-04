@@ -299,13 +299,7 @@
           <div class="ui segment">
             <button id = "l1" class = "ui large blue button"> Select</button>
           </div>
-          <script>
-
-$("#l1").click(function() {
-  var d = 1;
-    document.getElementById("l"+d+"div").style.backgroundColor = "#1BBC9B";
-});
-</script>
+         
 
         </div>
         <div class="ui segments">
@@ -328,14 +322,21 @@ $("#l1").click(function() {
      <div class="column">
       
       <div class="ui segments">
-        <div class="ui segment">
+        <div id = "l2div" class="ui segment">
           <h3>2 Meals for $24</h3>
         </div>
         <div class="ui segments">
           <div class="ui segment">
             <button id = "l2" class = "ui large blue button"> Select</button>
           </div>
-          
+           <script>
+
+$("#l2").click(function() {
+  var d = 2;
+    document.getElementById("l"+d+"div").style.backgroundColor = "#1BBC9B";
+	 document.getElementById("numberofL2").value = 2;
+});
+</script>
         </div>
         <div class="ui segments">
         <div class="ui segment">
@@ -343,7 +344,7 @@ $("#l1").click(function() {
        <div class="ui left icon input">
 
             <i class="user icon"></i>
-          <input style = "max-width:100px;" type="number" name="noOfPeople" placeholder="1">
+          <input id = "numberofL2" style = "max-width:100px;" type="number" name="noOfPeople" placeholder="1">
           <br/>
            <br/>
         </div>
@@ -606,9 +607,18 @@ $("#l1").click(function() {
 			</div>
 			  
 			  <div class="actions">
-				<a href="all_plans.html" class="ui large button">
-				  Back
-				</a>
+				<button id = "back" class="ui large button">Back</button>
+				  
+				<script>
+				$("#back").click(function() {
+					$('.ui.modal')
+					.modal('hide')
+						;
+				var d = 2;
+				document.getElementById("l"+d+"div").style.backgroundColor = "#1BBC9B";
+				document.getElementById("numberofL2").value = 2;
+				});
+				</script>
 				<a href="choose_meals.html" class="ui large blue button">
 				  Next
 				</a>
