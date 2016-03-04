@@ -46,6 +46,8 @@ Sortable.create(number7, {
     handle: '.my-handle',
 })
 
+var $counterCart1 = 0
+
 Sortable.create(cart1, {
     group: {name:"DragFood", put:true, pull:false},
     animation: 150,
@@ -55,8 +57,11 @@ Sortable.create(cart1, {
     },
     onAdd: function (evt){
             evt.item.innerHTML += ' <i class="js-remove remove icon"></i>';
+            $counterCart1 += 1
         },
 })
+
+var $counterCart2 = 0
 
 Sortable.create(cart2, {
     group: {name:"DragFood", put:true, pull:false},
@@ -67,6 +72,7 @@ Sortable.create(cart2, {
     },
     onAdd: function (evt){
             evt.item.innerHTML += ' <i class="js-remove remove icon"></i>';
+            $counterCart2 += 1
         },
 })
 
