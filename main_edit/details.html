@@ -20,6 +20,8 @@
   <link rel="stylesheet" type="text/css" href="../dist/components/input.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/modal.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/button.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
@@ -30,6 +32,12 @@
 
   <script src="assets/library/jquery.min.js"></script>
   <script src="../dist/semantic.js"></script>
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/semantic.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script src="../dist/components/dropdown.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+
 
   <style type="text/css">
 
@@ -143,10 +151,7 @@
 
   </style>
 
-  <script src="assets/library/jquery.min.js"></script>
-  <script src="../dist/components/visibility.js"></script>
-  <script src="../dist/components/sidebar.js"></script>
-  <script src="../dist/components/transition.js"></script>
+  
   <script>
   $(document)
     .ready(function() {
@@ -168,10 +173,19 @@
       $('.ui.sidebar')
         .sidebar('attach events', '.toc.item')
       ;
+	  
+	  $('selection.dropdown')
+  .dropdown()
+;
+
+$('.ui.modal')
+		.modal('attach events', '.huge.green.button', 'show')
+	  ;
 
     })
   ;
   </script>
+  
 </head>
 <body>
 
@@ -221,8 +235,8 @@
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
     
         <div class="right item">
-          Welcome, Ben G
-          <a href = "my_account.html" class="ui blue button">My Account</a>
+          <a href ="login.html" class="ui button">Log in</a>
+          <a class="ui button">Sign Up</a>
         </div>
       </div>
     </div>
@@ -243,13 +257,14 @@
         <div class="description">Enter dates</div>
       </div>
     </div>
-     <div class="active step">
+     <div class="completed step">
+	 <i class="checkmark icon"></i>
       <div class="content">
         <div class="title">Choose Meals</div>
         <div class="description">Enter meal preferences</div>
       </div>
     </div>
-     <div class="step">
+     <div class="active step">
       <div class="content">
         <div class="title">Details</div>
         <div class="description">Enter billing information</div>
@@ -262,158 +277,132 @@
       </div>
     </div>
   </div>
-
-
-<div class = "ui container">
-  <div class="ui four column grid">
-  <div class="column">
-    <div class="ui card">
-    <div class="ui move reveal image">
-      <div class="visible content">
-        <img class="ui fluid image" src="meals/sesamesalmon.jpg">
+  
+  <h3 class="ui header">Enter your Billing Information</h3>
+      <p>Please enter your Delivery Details and Billing Information.</p>
+	  <div class = "ui container">
+	<div class="ui segments">
+	  <div class="ui segment">	
+	<form class="ui form">
+  <h4 class="ui dividing header">User Information</h4>
+  <div class="field">
+    <label>Name</label>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="shipping[first-name]" placeholder="First Name">
       </div>
-      <div class="hidden content">
-        <img class="ui fluid image" src="meals/salmonraw.jpg">
+      <div class="field">
+        <input type="text" name="shipping[last-name]" placeholder="Last Name">
       </div>
-    </div>
-    <div class="content", id="number6">
-    <p><span class="my-handle" style="cursor:move"><font color="red">: : </font> </span>Sesame salmon</p>
-    </div>
     </div>
   </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="ui move reveal image">
-          <div class="visible content">
-            <img class="ui fluid image" src="meals/grilledchicken.png">
-          </div>
-        <div class="hidden content">
-        <img class="ui fluid image" src="meals/chickeningredients.jpg">
-      </div>
+
+  <h4 class="ui dividing header">Login Details</h4>
+  <div class="fields">
+    <div class="field">
+      <label>Username</label>
+      <input type="text" name="card[number]" maxlength="20" placeholder="Username" size="50">
     </div>
-    <div class="content", id="number5">
-    <p><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Herb baked chicken</p>
-    </div>
-    </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="ui move reveal image">
-          <div class="visible content">
-            <img class="ui fluid image" src="meals/Lamb_ribs.jpg">
-          </div>
-        <div class="hidden content">
-        <img class="ui fluid image" src="meals/rawlambribs.png">
-      </div>
-    </div>
-    <div class="content", id="number4">
-    <p><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Grilled Lamb Ribs</p>
-    </div>
-    </div>
-    </div>
-<div class="column">
-<div class="ui circular segment">
-  <h2 class="ui medium header">
-    Tuesday 8 March
-    <div class="sub header", id="cart1">Use :: to drag here
-    <p draggable="false" class=""><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Sesame salmon <i class="js-remove remove icon"></i></p>
-    <p draggable="false" class=""><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Sesame salmon <i class="js-remove remove icon"></i></p>
-    </div>
-  </h2>
-</div>
-</div>
-    <div class="column">
-      <div class="ui card">
-        <div class="ui move reveal image">
-          <div class="visible content">
-            <img class="ui fluid image" src="meals/sirloinsteak.png">
-          </div>
-        <div class="hidden content">
-        <img class="ui fluid image" src="meals/rawsirlionsteak.jpg">
-      </div>
-    </div>
-    <div class="content", id="number3">
-    <p><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Grilled sirloin steak</p>
-    </div>
-    </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="ui move reveal image">
-          <div class="visible content">
-            <img class="ui fluid image" src="meals/bimbimbap.jpg">
-          </div>
-        <div class="hidden content">
-        <img class="ui fluid image" src="meals/bibimbapraw.jpg">
-      </div>
-    </div>
-    <div class="content", id="number2">
-    <p><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Korean Bibimbap</p>
-    </div>
-    </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="ui move reveal image">
-          <div class="visible content">
-            <img class="ui fluid image" src="meals/bakedrainbowtrout.jpg">
-          </div>
-        <div class="hidden content">
-        <img class="ui fluid image" src="meals/rawrainbowtrout.jpg">
-      </div>
-    </div>
-    <div class="content", id="number1">
-      <p><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Baked rainbow trout</p>
-    </div>
-    </div>
-    </div>
-    <div class="column">
-<div class="ui circular segment">
-  <h2 class="ui medium header">
-    Saturday 12 March
-    <div class="sub header", id="cart2">Use : : to drag here
-      <p draggable="false" class=""><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Grilled sirloin steak <i class="js-remove remove icon"></i></p>
-      <p draggable="false" class=""><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Grilled sirloin steak <i class="js-remove remove icon"></i></p>
-    </div>
-  </h2>
-</div>
-</div>
-<div class="column">
-      <div class="ui card">
-        <div class="ui move reveal image">
-          <div class="visible content">
-            <img class="ui fluid image" src="meals/tacos.jpg">
-          </div>
-        <div class="hidden content">
-        <img class="ui fluid image" src="meals/tacosraw.jpg">
-      </div>
-    </div>
-    <div class="content", id="number0">
-      <p><span class="my-handle" style="cursor:move"><font color="red">: : </font></span>Guacamole Tacos</p>
-    </div>
-    </div>
-    </div>
-    <div class="column">
-    <div class="ui card">
-    <div class="ui move reveal image">
-      <div class="visible content">
-        <img class="ui fluid image" src="meals/tomyum.jpg">
-      </div>
-      <div class="hidden content">
-        <img class="ui fluid image" src="meals/tomyumraw.jpg">
-      </div>
-    </div>
-    <div class="content", id="number7">
-    <p><span class="my-handle" style="cursor:move"><font color="red">: : </font> </span>Thai Tom Yum</p>
-    </div>
+	<div class="field">
+      <label>Pasword</label>
+      <input type="text" name="card[number]" maxlength="20" placeholder="xxxxxx" size="50">
     </div>
   </div>
+  
+
+  <h4 class="ui dividing header">Billing Information</h4>
+  <div class="field">
+    <label>Billing Address</label>
+    <div class="fields">
+      <div class="twelve wide field">
+        <input type="text" name="shipping[address]" placeholder="Street Address">
+      </div>
+      <div class="four wide field">
+        <input type="text" name="shipping[address-2]" placeholder="Apt #">
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Country</label>
+      <select class="ui fluid dropdown">
+        <option value="">Select Country</option>
+    <option value="SIN"><i class="sg flag"></i>Singapore</option>
+
+      </select>
+    </div>
+    <div class="field">
+      <label>Region</label>
+	  <select class="ui fluid dropdown">
+        <option value="">Select Region</option>
+    <option value="SIN">Central Region</option>
+	<option value="SIN">East Region</option>
+	<option value="SIN">North Region</option>
+	<option value="SIN">North-east Region</option>
+	<option value="SIN">West Region</option>
+
+      </select>
+	  
+    </div>
+  </div>
+  <div class="field">
+    <label>Card Type</label>
+	<select class="ui fluid dropdown">
+        <option value="">Card Type</option>
+    <option><i class="visa icon"></i>VISA</option>
+	<option><i class="amex icon"></i>American Express</option>
+	<option><i class="discover icon"></i>Discover</option>
+      </select> 
+ 
+  </div>
+  <div class="fields">
+    <div class="seven wide field">
+      <label>Card Number</label>
+      <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
+    </div>
+    <div class="three wide field">
+      <label>CVC</label>
+      <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
+    </div>
+    <div class="six wide field">
+      <label>Expiration</label>
+      <div class="two fields">
+        <div class="field">
+          <select class="ui fluid search dropdown" name="card[expire-month]">
+            <option value="">Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="field">
+          <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+        </div>
+  </div>
+  <h3 class="ui dividing header">Order Details</h3>
+		<p style="margin-right:80px; display:inline;font-size:20px">2 Meals @ $24</p>
+		<p style="margin-right:0px; display:inline;font-size:20px">$24</p>
+		<p style="margin-right:130px; display:inline;font-size:20px">Additional</p>
+		<p style="margin-right:0px; display:inline;font-size:20px">$0</p>
+		<h3 class="ui dividing header"></h3>
+		<p style="margin-right:170px; display:inline;font-size:20px">Total</p>
+		<p style="margin-right:0px; display:inline;font-size:20px">$24</p>
+	
+</form>
 </div>
 </div>
-
-</br>
-
-<div class = "ui container">
+</div>
+	</div>
+	<div class = "ui container">
   <div class="ui four column grid">
  <div class="column">
     </div>
@@ -422,61 +411,20 @@
     <div class="column">
     </div>
      <div class="column">
-        <a href ="all_plans.html" class="ui large button">Back</a>
-        <a href ="details.html" id = "dates" class="ui large blue button">Next</a>
+        <a href ="choose_meals.html" class="ui huge button">Back</a>
+        <a href ="#" id = "dates" class="ui huge green button">Submit</a>
+		<div class="ui modal">
+			<i class="close icon"></i>
+  <div class="header">
+	<i class="check circle outline huge icon" style="display:inline"></i>
+  <p style="display:inline; font-size:40px">Thank you for your order!</p><br/>
+  You can make changes to your order until 24 hours in advance of the delivery date
+  </div>
+  
+			</div>
      </div>
     </div>
   </div>
-
-<!-- Content JS HERE !-->
-<style>
-  .last.container {
-    margin-bottom: 50px !important;
-  }
-  h1.ui.center.header {
-    margin-top: 3em;
-  }
-  h2.ui.center.header {
-    margin: 4em 0em 2em;
-  }
-  h3.ui.center.header {
-    margin-top: 2em;
-    padding: 2em 0em;
-  }
-</style>
-  </div>
-
-
-  <div class="ui inverted vertical footer segment">
-    <div class="ui container">
-      <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">About Us</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Sitemap</a>
-            <a href="#" class="item">Contact Us</a>
-           
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Services</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Featured Chefs</a>
-            <a href="#" class="item">Learn how to cook</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header">Discover Us On</h4>
-           <a href="https://www.facebook.com/servicestall" target="_blank"><i class="fa fa-lg fa-facebook"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+	</div>
 </body>
 </html>
-  <script src="../bower_components/Sortable/Sortable.js"></script>
-  <script src="../bower_components/Sortable/ng-sortable.js"></script>
-  <script src="../app.js"></script>
-
