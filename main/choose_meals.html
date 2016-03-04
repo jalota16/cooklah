@@ -417,10 +417,20 @@
     </div>
      <div class="column">
         <a href ="all_plans.html" class="ui large button">Back</a>
-        <a href ="details.html" id = "dates" class="ui large blue button">Next</a>
+        <!--<a href ="details.html" id = "dates" class="ui large blue button">Next</a>>-->
+        <a onclick = "checkNumberMeals(); return false;" id = "dates" class="ui large blue button">Next</a>
      </div>
     </div>
   </div>
+
+<script>
+function checkNumberMeals() {
+   if ($counterCart1 == 2 && $counterCart2 == 2)
+       window.location.href = "details.html";
+   else
+       window.alert("Too little meals selected")
+}
+</script>
 
 <!-- Content JS HERE !-->
 <style>
