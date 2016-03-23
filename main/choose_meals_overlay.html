@@ -282,11 +282,11 @@
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button" onclick=>Add</div>
+      <div class="ui button" onclick="addToCart1('Sesame salmon')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Sesame salmon')">Add</div>
     </div>
   </div>
 </div>
@@ -308,16 +308,16 @@
     <div class="content">
     Herb baked chicken
 
-    <div class="ui mini teal button">+</div>
+      <div class="ui mini teal button">+</div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Herb baked chicken')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Herb baked chicken')">Add</div>
     </div>
   </div>
 </div>
@@ -338,16 +338,16 @@
     <div class="content">
     Grilled Lamb Ribs
     
-    <div class="ui mini teal button">+</div>
+      <div class="ui mini teal button">+</div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Grilled Lamb Ribs')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Grilled Lamb Ribs')">Add</div>
     </div>
   </div>
 </div>
@@ -359,7 +359,8 @@
 <div class="ui circular segment">
   <h2 class="ui medium header">
     Tuesday 15 March
-    <div class="sub header", id="cart1">Drag Dish Here!</div>
+    <div class="sub header", id="cart1list"></div>
+
   </h2>
 </div>
 </div>
@@ -381,11 +382,11 @@
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Grilled sirloin steak')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Grilled sirloin steak')">Add</div>
     </div>
   </div>
 </div>
@@ -411,11 +412,11 @@
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Korean Bibimbap')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Korean Bibimbap')">Add</div>
     </div>
   </div>
 </div>
@@ -441,11 +442,11 @@
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Baked rainbow trout')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Baked rainbow trout')">Add</div>
     </div>
   </div>
 </div>
@@ -457,10 +458,11 @@
 <div class="ui circular segment">
   <h2 class="ui medium header">
     Friday 18 March
-    <div class="sub header", id="cart2">Drag Dish Here!</div>
+    <div class="sub header", id="cart2list"></div>
   </h2>
 </div>
 </div>
+
 <div class="column">
       <div class="ui card">
         <div class="ui move reveal image">
@@ -479,11 +481,11 @@
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Guacamole Tacos')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Guacamole Tacos')">Add</div>
     </div>
   </div>
 </div>
@@ -509,11 +511,11 @@
           <div class="ui two column divided center aligned grid">
             <div class="column">
       <p>15 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart1('Thai Tom Yum')">Add</div>
     </div>
     <div class="column">
       <p>18 March 2016</p>
-      <div class="ui button">Add</div>
+      <div class="ui button" onclick="addToCart2('Thai Tom Yum')">Add</div>
     </div>
   </div>
 </div>
@@ -583,6 +585,38 @@ $(document)
 ;
 </script>
 
+<script>
+var $counterCart1 = 0
+var $counterCart2 = 0
+function addToCart1(dishName) {
+    $counterCart1 += 1
+        if($counterCart1 > 1){
+          window.alert("1 Meal per Date");
+        }else{
+          $("#cart1list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>");
+        }
+}
+
+function addToCart2(dishName) {
+    $counterCart2 += 1
+        if($counterCart2 > 1){
+          window.alert("1 Meal per Date");
+        }else{
+          $("#cart2list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>");
+        }
+}
+
+function removeDishCart1(){
+  $('#cart1list').empty();
+  $counterCart1 -= 1
+}
+
+function removeDishCart2(){
+  $('#cart2list').empty();
+  $counterCart2 -= 1
+}
+</script>
+
 
   <div class="ui inverted vertical footer segment">
     <div class="ui container">
@@ -615,5 +649,5 @@ $(document)
 </html>
   <script src="../bower_components/Sortable/Sortable.js"></script>
   <script src="../bower_components/Sortable/ng-sortable.js"></script>
-  <script src="../app.js"></script>
+  <!--<script src="../app.js"></script>-->
 
