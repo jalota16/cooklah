@@ -144,9 +144,10 @@ Sortable.create(cart1, {
         $counterCart1 -= 1
         console.log($counterCart1)
     },
-    onAdd: function (evt){
-        evt.item.innerHTML += ' <i class="js-remove remove icon"></i>';
-        $counterCart1 += 1
+    onAdd: function (evt){        
+        $counterCart1 += 1;
+        var name = evt.item.getElementsByTagName("img")[0].name;
+        evt.item.innerHTML = "</br></br><p><b>" + name + "</b>" + "<i class='js-remove remove icon'></i></p>";
         console.log($counterCart1)
     },
 })
@@ -164,6 +165,9 @@ Sortable.create(cart2, {
     onAdd: function (evt){
         evt.item.innerHTML += ' <i class="js-remove remove icon"></i>';
         $counterCart2 += 1
+        var name = evt.item.getElementsByTagName("img")[0].name;
+        evt.item.innerHTML = "</br></br><p><b>" + name + "</b>" + "<i class='js-remove remove icon'></i></p>";
+        console.log($counterCart2)
     },
 })
 
