@@ -228,14 +228,7 @@
     </div>
 <br/>
    <div class="ui last container">
-  <div class="ui five steps">
-    <div class="completed step">
-    <i class="checkmark icon"></i>
-      <div class="content">
-        <div class="title">Select Plan</div>
-        <div class="description">Choose your meal options</div>
-      </div>
-    </div>
+  <div class="ui four steps">
     <div class="completed step">
     <i class="checkmark icon"></i>
       <div class="content">
@@ -357,7 +350,20 @@
 <div class="column">
 <div class="ui circular segment">
   <h2 class="ui medium header">
-    Tuesday 8 March
+    2 April 2016
+
+    <div class="ui compact selection dropdown">
+  <i class="dropdown icon"></i>
+  <div class="text">Pax</div>
+  <div class="menu">
+    <div class="item">1 Pax</div>
+    <div class="item">2 Pax</div>
+    <div class="item">3 Pax</div>
+    <div class="item">4 Pax</div>
+    <div class="item">5 Pax</div>
+  </div>
+</div>
+
     <div class="sub header", id="cart1">Drag Dish Here!</div>
   </h2>
 </div>
@@ -457,7 +463,20 @@
     <div class="column">
 <div class="ui circular segment">
   <h2 class="ui medium header">
-    Friday 11 March
+    9 April 2016
+
+    <div class="ui compact selection dropdown">
+  <i class="dropdown icon"></i>
+  <div class="text">Pax</div>
+  <div class="menu">
+    <div class="item">1 Pax</div>
+    <div class="item">2 Pax</div>
+    <div class="item">3 Pax</div>
+    <div class="item">4 Pax</div>
+    <div class="item">5 Pax</div>
+  </div>
+</div>
+    
     <div class="sub header", id="cart2">Drag Dish Here!</div>
   </h2>
 </div>
@@ -554,12 +573,18 @@ function checkNumberMeals() {
 
 <script src="../dist/components/popup.js"></script>
 <script src="../dist/components/dimmer.js"></script>
+<script src="../dist/components/dropdown.js"></script>
 
 <script type="text/javascript">
 $(document)
   .ready(function() {
     $('.icon.button')
       .popup({
+        on: 'click'
+      })
+    ;
+    $('.compact.selection.dropdown')
+      .dropdown({
         on: 'click'
       })
     ;
