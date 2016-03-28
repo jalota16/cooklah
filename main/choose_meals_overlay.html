@@ -694,7 +694,6 @@ function checkNumberMeals() {
 <script src="../dist/components/popup.js"></script>
 <script src="../dist/components/dimmer.js"></script>
 
-icon button
 <script type="text/javascript">
 $(document)
   .ready(function() {
@@ -718,6 +717,7 @@ var $counterCart2 = 0
 function addToCart1(dishName) {
     $counterCart1 += 1
         if($counterCart1 > 1){
+          $counterCart1 -= 1;
           window.alert("1 Meal per Date");
         }else{
           $("#cart1list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>");
@@ -727,6 +727,7 @@ function addToCart1(dishName) {
 function addToCart2(dishName) {
     $counterCart2 += 1
         if($counterCart2 > 1){
+          $counterCart2 -= 1;
           window.alert("1 Meal per Date");
         }else{
           $("#cart2list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>");
@@ -735,12 +736,12 @@ function addToCart2(dishName) {
 
 function removeDishCart1(){
   $('#cart1list').empty();
-  $counterCart1 -= 1
+  $counterCart1 -= 1;
 }
 
 function removeDishCart2(){
   $('#cart2list').empty();
-  $counterCart2 -= 1
+  $counterCart2 -= 1;
 }
 </script>
 

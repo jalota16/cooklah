@@ -277,7 +277,21 @@
       </div>
     </div>
     <div class="content">
-    <p>Sesame salmon</p>
+    Sesame salmon
+
+    <div class="ui right floated small black button unhide icon"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>Salmon slice</li>
+          <li>Ground herbs</li>
+          <li>1 bunch of brocolli</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
   </div>
@@ -292,7 +306,22 @@
       </div>
     </div>
     <div class="content">
-    <p>Herb baked chicken</p>
+    Herb baked chicken
+
+    <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>1 Chicken Thigh</li>
+          <li>Selection of Indian Spices</li>
+          <li>1 green pepper</li>
+          <li>1 lemongrass</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -307,7 +336,21 @@
       </div>
     </div>
     <div class="content">
-    <p>Grilled Lamb Ribs</p>
+    Grilled Lamb Ribs
+
+    <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>1 whole onion</li>
+          <li>A rack of 5 lamb ribs</li>
+          <li>A pinch of black pepper</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -330,7 +373,22 @@
       </div>
     </div>
     <div class="content">
-    <p>Grilled sirloin steak</p>
+    Grilled sirloin steak
+
+    <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>5 medium sized tomatoes</li>
+          <li>A clove of garlic</li>
+          <li>Raw black pepper</li>
+          <li>A pinch of rosemary</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -345,7 +403,24 @@
       </div>
     </div>
     <div class="content">
-    <p>Korean Bibimbap</p>
+    Korean Bibimbap
+
+    	<div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>1 Carrot</li>
+          <li>1 Spinach</li>
+          <li>1/2 Cabbage</li>
+          <li>1 Egg</li>
+          <li>Glutinous rice</li>
+          <li>100g of mushroom</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -360,7 +435,22 @@
       </div>
     </div>
     <div class="content">
-      <p>Baked rainbow trout</p>
+      Baked rainbow trout
+
+      <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>Whole Trout</li>
+          <li>Whole Lemon</li>
+          <li>35g Olive Oil</li>
+          <li>2 pinches of Salt</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -383,7 +473,22 @@
       </div>
     </div>
     <div class="content">
-      <p>Guacamole Tacos</p>
+      Guacamole Tacos
+
+      	<div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>1 Avocado</li>
+          <li>5 medium sized tomatoes</li>
+          <li>2 limes</li>
+          <li>A bunch of corriander</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -398,7 +503,22 @@
       </div>
     </div>
     <div class="content">
-    <p>Thai Tom Yum</p>
+    Thai Tom Yum
+
+    	  <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
+        <div class="ui fluid popup top left transition hidden">
+          <div class="ui one column divided center aligned grid">
+            <div class="column">
+        <ul>
+          <li>3 Prawns</li>
+          <li>Lemongrass</li>
+          <li>Button mushroom</li>
+          <li>3 limes</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
   </div>
@@ -430,6 +550,21 @@ function checkNumberMeals() {
    else
        window.alert("Too few meals selected")
 }
+</script>
+
+<script src="../dist/components/popup.js"></script>
+<script src="../dist/components/dimmer.js"></script>
+
+<script type="text/javascript">
+$(document)
+  .ready(function() {
+    $('.icon.button')
+      .popup({
+        on: 'click'
+      })
+    ;
+  })
+;
 </script>
 
 <!-- Content JS HERE !-->
