@@ -400,11 +400,11 @@
   <i class="dropdown icon"></i>
   <div class="text">Pax</div>
   <div class="menu">
-    <div class="item">1 Pax</div>
-    <div class="item">2 Pax</div>
-    <div class="item">3 Pax</div>
-    <div class="item">4 Pax</div>
-    <div class="item">5 Pax</div>
+    <div class="item" onclick="addCart1Pax('1')">1 Pax</div>
+    <div class="item" onclick="addCart1Pax('2')">2 Pax</div>
+    <div class="item" onclick="addCart1Pax('3')">3 Pax</div>
+    <div class="item" onclick="addCart1Pax('4')">4 Pax</div>
+    <div class="item" onclick="addCart1Pax('5')">5 Pax</div>
   </div>
 </div>
 
@@ -555,15 +555,15 @@
   <h2 class="ui medium header">
     9 April 2016
 
-    <div class="ui compact selection dropdown">
+<div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
   <div class="text">Pax</div>
   <div class="menu">
-    <div class="item">1 Pax</div>
-    <div class="item">2 Pax</div>
-    <div class="item">3 Pax</div>
-    <div class="item">4 Pax</div>
-    <div class="item">5 Pax</div>
+    <div class="item" onclick="addCart2Pax('1')">1 Pax</div>
+    <div class="item" onclick="addCart2Pax('2')">2 Pax</div>
+    <div class="item" onclick="addCart2Pax('3')">3 Pax</div>
+    <div class="item" onclick="addCart2Pax('4')">4 Pax</div>
+    <div class="item" onclick="addCart2Pax('5')">5 Pax</div>
   </div>
 </div>
 
@@ -685,10 +685,10 @@
 
 <script>
 function checkNumberMeals() {
-   if ($counterCart1 == 1 && $counterCart2 == 1)
+   if ($counterCart1 == 1 && $counterCart2 == 1 && $counterPaxCart1 != 0 && $counterPaxCart2 != 0)
        window.location.href = "details.html";
    else
-       window.alert("Too few meals selected")
+       window.alert("Too few meals selected / Number of Pax not selected")
 }
 </script>
 
@@ -767,6 +767,15 @@ function removeDishCart1(){
 function removeDishCart2(){
   $('#cart2list').empty();
   $counterCart2 -= 1;
+}
+
+var $counterPaxCart1 = 0
+var $counterPaxCart2 = 0
+function addCart1Pax(paxCount) {
+    $counterPaxCart1 = paxCount;
+}
+function addCart2Pax(paxCount) {
+    $counterPaxCart2 = paxCount;
 }
 </script>
 
