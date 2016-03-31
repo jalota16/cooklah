@@ -30,6 +30,16 @@
 
   <script src="assets/library/jquery.min.js"></script>
   <script src="../dist/semantic.js"></script>
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/semantic.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script src="../dist/components/dropdown.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
 
   <style type="text/css">
 
@@ -138,15 +148,8 @@
     color: white;
 }
 
-
-
-
   </style>
 
-  <script src="assets/library/jquery.min.js"></script>
-  <script src="../dist/components/visibility.js"></script>
-  <script src="../dist/components/sidebar.js"></script>
-  <script src="../dist/components/transition.js"></script>
   <script>
   $(document)
     .ready(function() {
@@ -169,9 +172,21 @@
         .sidebar('attach events', '.toc.item')
       ;
 
+      $('.small.modal')
+      .modal('setting', 'closable', false)
+      .modal('show')
+      ;
+    
+      $('#example1').calendar({
+        type: 'date'
+      });
+      $('#example2').calendar({
+        type: 'date'
+      });
     })
   ;
   </script>
+  <script src="../dist/components/modal.js"></script>
 </head>
 <body>
 
@@ -256,6 +271,253 @@
     </div>
   </div>
 
+<div class="ui small modal">
+  <h3 class="ui header">Choose Dates - Within 4 weeks from tomorrow</h3>
+  <p style="margin: 20px" id="txt"><i>Please enter date/time</i></p>
+  
+  <div class="column">
+
+  
+  <form name="form1">
+  <div id="date1" style="margin: 20px">
+  <div class="ui right labeled input">
+  <div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="d1" type="text" placeholder="Date/Time" style="width:150px">
+    <div class="ui dropdown label" id="dropdown1">
+        <div class="text" style="font-size:15px">Time Window</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">10:00-11:00</div>
+          <div class="item">11:00-12:00</div>
+          <div class="item">18:00-19:00</div>
+      <div class="item">19:00-20:00</div>
+      <div class="item">21:00-22:00</div>
+        </div>
+      </div>
+  </div>
+  
+  &nbsp;&nbsp;
+  <button id="add1" class="ui green small button">Add another Date</button>
+  </div>
+  </div>
+   </div>
+   </form>
+
+   </div>
+   <div class="column">
+  <form name="form2">
+   <div id="date2" style="margin: 20px">
+     <div class="ui right labeled input">
+  <div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="d2" type="text" placeholder="Date/Time" style="width:150px">
+    <div class="ui dropdown label" id="dropdown2">
+        <div class="text" style="font-size:15px">Time Window</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">10:00-11:00</div>
+          <div class="item">11:00-12:00</div>
+          <div class="item">18:00-19:00</div>
+      <div class="item">19:00-20:00</div>
+      <div class="item">21:00-22:00</div>
+        </div>
+      </div>
+  </div>
+  &nbsp;&nbsp;
+  <button id="add2" class="ui green small button">Add another Date</button>
+  <button id="delete2" class="ui red small button">Delete Date</button>
+  </div>
+   </div>
+   </div>
+     </form>
+   </div>
+   <div class="column">
+   <form name="form3">
+   <div id="date3" style="margin: 20px">
+     <div class="ui right labeled input">
+  <div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="d3" type="text" placeholder="Date/Time" style="width:150px">
+    <div class="ui dropdown label" id="dropdown3">
+        <div class="text" style="font-size:15px">Time Window</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">10:00-11:00</div>
+          <div class="item">11:00-12:00</div>
+          <div class="item">18:00-19:00</div>
+      <div class="item">19:00-20:00</div>
+      <div class="item">21:00-22:00</div>
+        </div>
+      </div>
+  </div>
+  &nbsp;&nbsp;
+  <button id="add3" class="ui green small button">Add another Date</button>
+  <button id="delete3" class="ui red small button">Delete Date</button>
+  </div>
+   </div>
+   </div>
+   </form>
+     
+   </div>
+   <div class="column">
+   <form name="form4">
+  <div id="date4" style="margin: 20px">
+     <div class="ui right labeled input">
+  <div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="d4" type="text" placeholder="Date/Time" style="width:150px">
+    <div class="ui dropdown label" id="dropdown4">
+        <div class="text" style="font-size:15px">Time Window</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">10:00-11:00</div>
+          <div class="item">11:00-12:00</div>
+          <div class="item">18:00-19:00</div>
+      <div class="item">19:00-20:00</div>
+      <div class="item">21:00-22:00</div>
+        </div>
+      </div>
+  </div>
+  &nbsp;&nbsp;
+  <button id="add4" class="ui green small button">Add another Date</button>
+  <button id="delete4" class="ui red small button">Delete Date</button>
+  </div>
+   </div>
+   </div>
+   </form>
+
+   </div>
+   <div class="column">
+   <form name="form5">
+   <div id="date5" style="margin: 20px">
+    <div class="ui right labeled input"> 
+  <div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="d5" type="text" placeholder="Date/Time" style="width:150px">
+    <div class="ui dropdown label" id="dropdown5">
+        <div class="text" style="font-size:15px">Time Window</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">10:00-11:00</div>
+          <div class="item">11:00-12:00</div>
+          <div class="item">18:00-19:00</div>
+      <div class="item">19:00-20:00</div>
+      <div class="item">21:00-22:00</div>
+        </div>
+      </div>
+  </div>
+  &nbsp;&nbsp;
+  <button id="delete5" class="ui red small button">Delete Date</button>
+  </div>
+  </div>
+  </div>
+  </form>
+  </div>
+  <script>
+  $("#date2").hide();
+  $("#date3").hide();
+  $("#date4").hide();
+  $("#date5").hide();
+  $("#add1").click(function(){
+    $("#date2").show();
+    $("#date3").hide();
+    $("#date4").hide();
+    $("#date5").hide();
+    $("#add1").hide();
+  });
+  $("#add2").click(function(){
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").hide();
+    $("#date5").hide();
+    $("#add2").hide();
+  });
+  $("#add3").click(function(){
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").show();
+    $("#date5").hide();
+    $("#add3").hide();
+  });
+  $("#add4").click(function(){
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").show();
+    $("#date5").show();
+    $("#add4").hide();
+  });
+  $("#delete2").click(function(){
+    $("#date1").show();
+    $("#date2").hide();
+    $("#date3").hide();
+    $("#date4").hide();
+    $("#date5").hide();
+  });
+  $("#delete3").click(function(){
+    $("#date1").show();
+    $("#date2").show();
+    $("#date3").hide();
+    $("#date4").hide();
+    $("#date5").hide();
+  });
+  $("#delete4").click(function(){
+    $("#date1").show();
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").hide();
+    $("#date5").hide();
+  });
+  $("#delete5").click(function(){
+    $("#date1").show();
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").show();
+    $("#date5").hide();
+  });
+  $(document)
+    .ready(function() {
+      $('.ui.dropdown')
+        .dropdown({
+          on: 'click'
+        })
+      ;
+    })
+  ;
+  </script>
+  
+  
+
+  <div class="actions">
+  <a href="homepage.html" class="ui large blue button">Back</a>
+  <button onclick="checkDates(); return false;" id="done" class="ui large button">Go Next</button>
+  <script>
+  $("#done").click(function() {
+    $('.ui.modal')
+    .modal('hide')
+      ;
+  });
+  
+  function checkDates() {
+    if ($('#date1').is(':visible') && document.forms['form1'].d1.value == "" || $('#date2').is(':visible') && document.forms['form2'].d1.value == "" || $('#date3').is(':visible') && document.forms['form3'].d1.value == "" || $('#date4').is(':visible') && document.forms['form4'].d1.value == "" || $('#date5').is(':visible') && document.forms['form5'].d1.value == "") {
+      $("#txt").show();
+    }
+    else {
+      $('.small.modal').hide();
+    }
+  }
+  
+  function view() {
+    $("#txt").hide();
+  }
+  </script>
+  </div>
+  </div>
 
 <div class = "ui container">
   <div class="ui four column grid">
