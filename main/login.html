@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properties -->
-  <title>Login Example - Semantic</title>
+  <title>CookLah! Login</title>
   <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
 
@@ -206,6 +206,7 @@
 
     })
   ;
+  $("#error").hide();
   </script>
 </head>
 <body>
@@ -262,6 +263,28 @@
 <br/>
 <br/>
 <br/>
+<script>
+
+validateUser = function(){
+	var userid = document.getElementById("userID").value;
+	var password = document.getElementById("password").value;
+	var savedUser = JSON.parse(sessionStorage.user);
+	
+	
+	if(userid == savedUser.name && password ==savedUser.password){
+		 var setLogin = {'loggedIn':'true'};
+		 sessionStorage.setItem('setLogin', JSON.stringify(setLogin));
+		 var obj = JSON.parse(sessionStorage.setLogin);
+		 document.location.href = "homepage.html";
+	}
+	
+	else{
+		$("#error").show();
+	}
+};
+
+</script>
+
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui teal image header">
@@ -275,19 +298,19 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" id="userID" placeholder="User ID">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" id="password" placeholder="Password">
           </div>
         </div>
-        <a href = "../main_edit/homepage.html" class="ui fluid large teal submit button">Login</a>
+        <a onclick = "validateUser()" class="ui fluid large teal submit button">Login</a>
       </div>
 
-      <div class="ui error message"></div>
+      <div id = "error" class="ui error message">You have entered incorrect login credentials! Please try again</div>
 
     </form>
 

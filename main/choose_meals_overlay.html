@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <!-- Standard Meta -->
@@ -180,16 +180,52 @@
       $('#example1').calendar({
         type: 'date'
       });
-      $('#example2').calendar({
+	  
+	  $('#example2').calendar({
+        type: 'date'
+      });
+	  
+	  $('#example3').calendar({
+        type: 'date'
+      });
+	  
+	  $('#example4').calendar({
+        type: 'date'
+      });
+	  
+	  $('#example5').calendar({
         type: 'date'
       });
 
+	  $("#errorMsg").hide();
+	  try {
+		if(sessionStorage.setLogin != undefined){
+			var loginStatus = JSON.parse(sessionStorage.setLogin);
+			}
+			if(sessionStorage.user != undefined){
+				var user = JSON.parse(sessionStorage.user);
+			}
+			console.log(loginStatus.loggedIn);
+			if(loginStatus.loggedIn == "true"){
+			console.log("here " + loginStatus.loggedIn);
+			//$("#login").hide();
+			//$("#signup").hide();
+			document.getElementById('loginSpace').innerHTML = '';
+
+			var h3 = document.createElement('h3');
+			h3.innerHTML = "Welcome "+ user.name;
+			document.getElementById('loginSpace').appendChild(h3);
+			}
+		}
+		catch(err) {
+			console.log("User undefined");
+		}
     })
   ;
   </script>
   <script src="../dist/components/modal.js"></script>
 </head>
-<body onload="view()">
+<body>
 
 <!-- Following Menu -->
 <div class="ui large top fixed hidden menu">
@@ -236,7 +272,7 @@
         <a href ="weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
     
-        <div class="right item">
+        <div id = "loginSpace" class="right item">
           <a href ="login.html" class="ui button">Log in</a>
           <a class="ui button">Sign Up</a>
         </div>
@@ -271,7 +307,53 @@
       </div>
     </div>
   </div>
-
+<script>
+	validateDate = function(){
+	//console.log($("#date2").is(":visible"));
+	var hideModal = false;
+		if(document.getElementById("d1").value == ""){
+			$("#errorMsg").show();
+		} else {
+				hideModal = true;
+		}
+		
+		if($("#date2").is(":visible")){
+					hideModal = false;
+					if(document.getElementById("d2").value == ""){
+						 $("#errorMsg").show();
+					} else {hideModal = true;}
+					
+				}
+				if($("#date3").is(":visible")){
+					hideModal = false;
+					if(document.getElementById("d3").value == ""){
+						 $("#errorMsg").show();
+					} else {hideModal = true;}
+					
+				} 
+				
+				if($("#date4").is(":visible")){
+					hideModal = false;
+					if(document.getElementById("d4").value == ""){
+						 $("#errorMsg").show();
+					} else {hideModal = true;}
+					
+				} 
+				
+				if($("#date5").is(":visible")){
+					hideModal = false;
+					if(document.getElementById("d5").value == ""){
+						 $("#errorMsg").show();
+					} else {hideModal = true;}
+					
+				} 
+				
+			if(hideModal){
+				$("#errorMsg").hide();
+				$('.ui.modal').modal('hide');
+			}
+	}
+</script>
 <div class="ui small modal">
   <h3 class="ui header">Choose Dates - Within 4 weeks from tomorrow</h3>
   <p style="margin: 20px" id="txt"><i>Please enter date/time</i></p>
@@ -279,13 +361,12 @@
   <div class="column">
 
   
-  <form name="form1">
   <div id="date1" style="margin: 20px">
   <div class="ui right labeled input">
   <div class="ui calendar" id="example1">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
-    <input id="d1" type="text" placeholder="Date/Time" style="width:150px">
+    <input id="d1" type="text" placeholder="Date/Time" style="width:150px"/>
     <div class="ui dropdown label" id="dropdown1">
         <div class="text" style="font-size:15px">Time Window</div>
         <i class="dropdown icon"></i>
@@ -304,14 +385,13 @@
   </div>
   </div>
    </div>
-   </form>
 
    </div>
    <div class="column">
   <form name="form2">
    <div id="date2" style="margin: 20px">
      <div class="ui right labeled input">
-  <div class="ui calendar" id="example1">
+  <div class="ui calendar" id="example2">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d2" type="text" placeholder="Date/Time" style="width:150px">
@@ -339,7 +419,7 @@
    <form name="form3">
    <div id="date3" style="margin: 20px">
      <div class="ui right labeled input">
-  <div class="ui calendar" id="example1">
+  <div class="ui calendar" id="example3">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d3" type="text" placeholder="Date/Time" style="width:150px">
@@ -368,7 +448,7 @@
    <form name="form4">
   <div id="date4" style="margin: 20px">
      <div class="ui right labeled input">
-  <div class="ui calendar" id="example1">
+  <div class="ui calendar" id="example4">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d4" type="text" placeholder="Date/Time" style="width:150px">
@@ -397,7 +477,7 @@
    <form name="form5">
    <div id="date5" style="margin: 20px">
     <div class="ui right labeled input"> 
-  <div class="ui calendar" id="example1">
+  <div class="ui calendar" id="example5">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d5" type="text" placeholder="Date/Time" style="width:150px">
@@ -425,98 +505,84 @@
   $("#date3").hide();
   $("#date4").hide();
   $("#date5").hide();
-  $("#add1").click(function(){
+  $("#add1").on("click", function(e){
+	e.preventDefault();
     $("#date2").show();
     $("#date3").hide();
     $("#date4").hide();
     $("#date5").hide();
     $("#add1").hide();
   });
-  $("#add2").click(function(){
+  $("#add2").on("click", function(e){
+	e.preventDefault();
     $("#date2").show();
     $("#date3").show();
     $("#date4").hide();
     $("#date5").hide();
     $("#add2").hide();
   });
-  $("#add3").click(function(){
+  $("#add3").on("click", function(e){
+	e.preventDefault();
     $("#date2").show();
     $("#date3").show();
     $("#date4").show();
     $("#date5").hide();
     $("#add3").hide();
   });
-  $("#add4").click(function(){
+  $("#add4").on("click", function(e){
+	e.preventDefault();
     $("#date2").show();
     $("#date3").show();
     $("#date4").show();
     $("#date5").show();
     $("#add4").hide();
   });
-  $("#delete2").click(function(){
+  $("#delete2").on("click", function(e){
+	e.preventDefault();
     $("#date1").show();
+	$("#add1").show();
     $("#date2").hide();
     $("#date3").hide();
     $("#date4").hide();
     $("#date5").hide();
   });
-  $("#delete3").click(function(){
+  $("#delete3").on("click", function(e){
+	e.preventDefault();
     $("#date1").show();
     $("#date2").show();
+	$("#add2").show();
     $("#date3").hide();
     $("#date4").hide();
     $("#date5").hide();
   });
-  $("#delete4").click(function(){
+  $("#delete4").on("click", function(e){
+	e.preventDefault();
     $("#date1").show();
     $("#date2").show();
     $("#date3").show();
+	$("#add3").show();
     $("#date4").hide();
     $("#date5").hide();
   });
-  $("#delete5").click(function(){
+  $("#delete5").on("click", function(e){
+	e.preventDefault();
     $("#date1").show();
     $("#date2").show();
     $("#date3").show();
     $("#date4").show();
+	$("#add4").show();
     $("#date5").hide();
   });
-  $(document)
-    .ready(function() {
-      $('.ui.dropdown')
-        .dropdown({
-          on: 'click'
-        })
-      ;
-    })
-  ;
+
   </script>
   
-  
+  <div id = "errorMsg" class="ui error message">Please enter your dates to continue</div>
+
 
   <div class="actions">
   <a href="homepage.html" class="ui large blue button">Back</a>
-  <button onclick="checkDates(); return false;" id="done" class="ui large button">Go Next</button>
-  <script>
-  $("#done").click(function() {
-    $('.ui.modal')
-    .modal('hide')
-      ;
-  });
+  <button onclick="validateDate(); return false;" id="done" class="ui large button">Next</button>
   
-  function checkDates() {
-    if ($('#date1').is(':visible') && document.forms['form1'].d1.value == "" || $('#date2').is(':visible') && document.forms['form2'].d1.value == "" || $('#date3').is(':visible') && document.forms['form3'].d1.value == "" || $('#date4').is(':visible') && document.forms['form4'].d1.value == "" || $('#date5').is(':visible') && document.forms['form5'].d1.value == "") {
-      $("#txt").show();
-    }
-    else {
-      $('.small.modal').hide();
-    }
-  }
-  
-  function view() {
-    $("#txt").hide();
-  }
-  </script>
   </div>
   </div>
 
@@ -604,6 +670,8 @@
           <li>Selection of Indian Spices</li>
           <li>1 green pepper</li>
           <li>1 lemongrass</li>
+		  <li>1 Pan</li>
+		  <li>1 Sieve</li>
         </ul>
     </div>
   </div>

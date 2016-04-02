@@ -165,9 +165,44 @@
       $('.ui.sidebar')
         .sidebar('attach events', '.toc.item')
       ;
+		
+	  	
+	  var user = {'name':'Ben','password':'12345'};
+	  sessionStorage.setItem('user', JSON.stringify(user));
+	  var obj = JSON.parse(sessionStorage.user);
+	  try{
+		if(sessionStorage.setLogin != "undefined"){
+			var loginStatus = JSON.parse(sessionStorage.setLogin);
+			}
+		  console.log(loginStatus.loggedIn);
+		  if(loginStatus.loggedIn == "true"){
+		   console.log("here " + loginStatus.loggedIn);
+			//$("#login").hide();
+			//$("#signup").hide();
+			document.getElementById('loginSpace').innerHTML = '';
 
+			var h3 = document.createElement('h3');
+			h3.innerHTML = "Welcome "+ obj.name;
+			document.getElementById('loginSpace').appendChild(h3);
+			//var button = document.createElement('button');
+			//button.className = "ui button"
+			//button.innerHTML = "Log Out";
+			//document.getElementById('loginSpace').appendChild(button);
+			document.getElementById('followLogin').innerHTML = '';
+
+			var h2 = document.createElement('h2');
+			h2.innerHTML = "Welcome "+ obj.name;
+			document.getElementById('followLogin').appendChild(h2);
+			}
+		} catch(err){
+			console.log("User undefined");
+		}
+		
+	  
+	  
     })
   ;
+  
   </script>
 </head>
 <body>
@@ -176,11 +211,10 @@
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
     <a class="active item">Home</a>
-    <a class="item" href = "all_plans.html">Plans</a>
         <a href = "weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
      
-    <div class="right menu">
+    <div id = "followLogin" class="right menu">
       <div class="item">
         <a class="ui button">Log in</a>
       </div>
@@ -213,17 +247,29 @@
           <i class="sidebar icon"></i>
         </a>
         <a href ="homepage.html" class="active item">Home</a>
-        <a href = "all_plans.html" class="item" href = "all_plans.html">Plans</a>
         <a href ="weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
     
-        <div class="right item">
-          <a href ="login.html" class="ui button">Log in</a>
-          <a class="ui button">Sign Up</a>
+        <div id = "loginSpace" class="right item">
+          <a id = "login" href ="login.html" class="ui button">Log in</a>
+          <a id = "signup" class="ui button">Sign Up</a>
         </div>
       </div>
     </div>
+	<script>
 
+	validateEdit = function(){
+	
+		var loginStatus = JSON.parse(sessionStorage.setLogin);
+		console.log(loginStatus.loggedIn);
+		if(loginStatus.loggedIn == "true"){
+			document.location.href = "choose_meals_overlay.html";
+		} else {
+			document.location.href = "login.html";
+		}
+	};
+
+	</script>
     <div>
   
       <br/>
@@ -233,8 +279,10 @@
         CookLah!
       </h1>
       <h2 style = "color:#FFFFFF !important;">Cook Easy, Eat Healthy...</h2>
-<a href = "choose_meals.html" id ="seeAllPlans" class="ui huge primary button">Choose Dates</a>
+	  <h2 style = "color:#FFFFFF !important;">Get Recipes from World Class Chefs...</h2>
+<a href = "choose_meals_overlay.html" id ="seeAllPlans" class="ui huge primary button">Start Ordering</a>
        <button id ="howitworks" class="ui huge primary button">How It Works</button>
+	   <a id ="seeAllPlans" class="ui huge primary button" onclick = "validateEdit()">Edit Order</a>
     </div>
 <script>
 
@@ -292,13 +340,13 @@ width:"100px";
     <div class="ui text container">
       <h3 class="ui header">Featured Chefs</h3>
       <p>Our world renouned celebrity chefs tailor make recipies for you to cook at home letting you be the chef of your own micchelin star meal</p>
-      <a class="ui large blue button">Read More</a>
+      <a class="ui large blue button" href="featured_chefs.html">Read More</a>
       <h4 class="ui horizontal header divider">
         <a>Offered meal plans</a>
       </h4>
-      <h3 class="ui header">Flexibile plans, to suit your lifestyle</h3>
-      <p>Get your meals delivered at your convenince. Our flexible cooking options let you decide when and what to cook</p>
-      <a class="ui large blue button">Read More</a>
+      <h3 class="ui header">Delicious Recipes</h3>
+      <p>Get worl class recipes delivered together with the ingrdients at your convenince. Our flexible cooking options let you decide when and what to cook</p>
+      <a class="ui large blue button" href="weekly_menu.html">Read More</a>
     </div>
   </div>
 
