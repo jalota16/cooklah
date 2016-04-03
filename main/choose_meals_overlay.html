@@ -151,6 +151,19 @@
 
   </style>
 
+<script type="text/javascript">
+function checkModal(){
+  if(sessionStorage.date1 == undefined ){
+
+    $('.small.modal')
+      .modal('setting', 'closable', false)
+      .modal('show')
+      ;
+  }
+
+}
+</script>>
+
   <script>
   $(document)
     .ready(function() {
@@ -178,10 +191,8 @@
       $('.ui.sidebar')
         .sidebar('attach events', '.toc.item')
       ;
-      $('.small.modal')
-      .modal('setting', 'closable', false)
-      .modal('show')
-      ;
+
+      checkModal();
     
       $('#example1').calendar({
         type: 'date'
@@ -386,7 +397,7 @@
 				$('.ui.modal').modal('hide');
 				
 			}
-			
+			window.location.reload();
 	}
 </script>
 <div class="ui small modal">
@@ -639,23 +650,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish1cart1">
-              <p>2 April 2016</p>
+              <div id='cart1DateDish1'></div>
                 <div class="ui button" onclick="addToCart1('Sesame salmon')">Add</div>
             </div>
     <div class="column" id="dish1cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish1'></div>
       <div class="ui button" onclick="addToCart2('Sesame salmon')">Add</div>
     </div>
     <div class="column" id="dish1cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish1'></div>
                 <div class="ui button" onclick="addToCart3('Sesame salmon')">Add</div>
             </div>
     <div class="column" id="dish1cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish1'></div>
                 <div class="ui button" onclick="addToCart4('Sesame salmon')">Add</div>
             </div>
     <div class="column" id="dish1cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish1'></div>
                 <div class="ui button" onclick="addToCart5('Sesame salmon')">Add</div>
             </div>
     <div class="column">
@@ -699,23 +710,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish2cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish2'></div>
       <div class="ui button" onclick="addToCart1('Herb baked chicken')">Add</div>
     </div>
     <div class="column" id="dish2cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish2'></div>
       <div class="ui button" onclick="addToCart2('Herb baked chicken')">Add</div>
     </div>
     <div class="column" id="dish2cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish2'></div>
                 <div class="ui button" onclick="addToCart3('Herb baked chicken')">Add</div>
             </div>
     <div class="column" id="dish2cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish2'></div>
                 <div class="ui button" onclick="addToCart4('Herb baked chicken')">Add</div>
             </div>
     <div class="column" id="dish2cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish2'></div>
                 <div class="ui button" onclick="addToCart5('Herb baked chicken')">Add</div>
             </div>
     <div class="column">
@@ -760,23 +771,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish3cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish3'></div>
       <div class="ui button" onclick="addToCart1('Grilled Lamb Ribs')">Add</div>
     </div>
     <div class="column" id="dish3cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish3'></div>
       <div class="ui button" onclick="addToCart2('Grilled Lamb Ribs')">Add</div>
     </div>
     <div class="column" id="dish3cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish3'></div>
                 <div class="ui button" onclick="addToCart3('Grilled Lamb Ribs')">Add</div>
             </div>
     <div class="column" id="dish3cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish3'></div>
                 <div class="ui button" onclick="addToCart4('Grilled Lamb Ribs')">Add</div>
             </div>
     <div class="column" id="dish3cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish3'></div>
                 <div class="ui button" onclick="addToCart5('Grilled Lamb Ribs')">Add</div>
             </div>
     <div class="column">
@@ -805,7 +816,7 @@
 <div class="column">
 <div class="ui circular segment" id="cart1">
   <h2 class="ui small header">
-    2 April 2016
+    <div id='cart1Date'></div>
 
 <div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
@@ -828,7 +839,7 @@
 
 <div class="ui circular segment" id="cart2">
   <h2 class="ui small header">
-    9 April 2016
+    <div id='cart2Date'></div>
 
 <div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
@@ -863,23 +874,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish4cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish4'></div>
       <div class="ui button" onclick="addToCart1('Grilled sirloin steak')">Add</div>
     </div>
     <div class="column" id="dish4cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish4'></div>
       <div class="ui button" onclick="addToCart2('Grilled sirloin steak')">Add</div>
     </div>
     <div class="column" id="dish4cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish4'></div>
                 <div class="ui button" onclick="addToCart3('Grilled sirloin steak')">Add</div>
             </div>
     <div class="column" id="dish4cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish4'></div>
                 <div class="ui button" onclick="addToCart4('Grilled sirloin steak')">Add</div>
             </div>
     <div class="column" id="dish4cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish4'></div>
                 <div class="ui button" onclick="addToCart5('Grilled sirloin steak')">Add</div>
             </div>
     <div class="column">
@@ -922,23 +933,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish5cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish5'></div>
       <div class="ui button" onclick="addToCart1('Korean Bibimbap')">Add</div>
     </div>
     <div class="column" id="dish5cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish5'></div>
       <div class="ui button" onclick="addToCart2('Korean Bibimbap')">Add</div>
     </div>
     <div class="column" id="dish5cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish5'></div>
                 <div class="ui button" onclick="addToCart3('Korean Bibimbap')">Add</div>
             </div>
     <div class="column" id="dish5cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish5'></div>
                 <div class="ui button" onclick="addToCart4('Korean Bibimbap')">Add</div>
             </div>
     <div class="column" id="dish5cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish5'></div>
                 <div class="ui button" onclick="addToCart5('Korean Bibimbap')">Add</div>
             </div>
     <div class="column">
@@ -983,23 +994,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish6cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish6'></div>
       <div class="ui button" onclick="addToCart1('Baked rainbow trout')">Add</div>
     </div>
     <div class="column" id="dish6cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish6'></div>
       <div class="ui button" onclick="addToCart2('Baked rainbow trout')">Add</div>
     </div>
     <div class="column" id="dish6cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish6'></div>
                 <div class="ui button" onclick="addToCart3('Baked rainbow trout')">Add</div>
             </div>
     <div class="column" id="dish6cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish6'></div>
                 <div class="ui button" onclick="addToCart4('Baked rainbow trout')">Add</div>
             </div>
     <div class="column" id="dish6cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish6'></div>
                 <div class="ui button" onclick="addToCart5('Baked rainbow trout')">Add</div>
             </div>
     <div class="column">
@@ -1029,7 +1040,7 @@
     <div class="column">
 <div class="ui circular segment" id="cart3">
   <h2 class="ui small header">
-    15 April 2016
+    <div id='cart3Date'></div>
 
 <div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
@@ -1051,7 +1062,7 @@
 
 <div class="ui circular segment" id="cart4">
   <h2 class="ui small header">
-    16 April 2016
+    <div id='cart4Date'></div>
 
 <div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
@@ -1087,23 +1098,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish7cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish7'></div>
       <div class="ui button" onclick="addToCart1('Guacamole Tacos')">Add</div>
     </div>
     <div class="column" id="dish7cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish7'></div>
       <div class="ui button" onclick="addToCart2('Guacamole Tacos')">Add</div>
     </div>
     <div class="column" id="dish7cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish7'></div>
                 <div class="ui button" onclick="addToCart3('Guacamole Tacos')">Add</div>
             </div>
     <div class="column" id="dish7cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish7'></div>
                 <div class="ui button" onclick="addToCart4('Guacamole Tacos')">Add</div>
             </div>
     <div class="column" id="dish7cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish7'></div>
                 <div class="ui button" onclick="addToCart5('Guacamole Tacos')">Add</div>
             </div>
     <div class="column">
@@ -1146,23 +1157,23 @@
         <div class="ui fluid popup top left transition hidden">
           <div class="ui three column center aligned grid">
             <div class="column" id="dish8cart1">
-      <p>2 April 2016</p>
+      <div id='cart1DateDish8'></div>
       <div class="ui button" onclick="addToCart1('Thai Tom Yum')">Add</div>
     </div>
     <div class="column" id="dish8cart2">
-      <p>9 April 2016</p>
+      <div id='cart2DateDish8'></div>
       <div class="ui button" onclick="addToCart2('Thai Tom Yum')">Add</div>
     </div>
     <div class="column" id="dish8cart3">
-              <p>15 April 2016</p>
+              <div id='cart3DateDish8'></div>
                 <div class="ui button" onclick="addToCart3('Thai Tom Yum')">Add</div>
             </div>
     <div class="column" id="dish8cart4">
-              <p>16 April 2016</p>
+              <div id='cart4DateDish8'></div>
                 <div class="ui button" onclick="addToCart4('Thai Tom Yum')">Add</div>
             </div>
     <div class="column" id="dish8cart5">
-              <p>17 April 2016</p>
+              <div id='cart5DateDish8'></div>
                 <div class="ui button" onclick="addToCart5('Thai Tom Yum')">Add</div>
             </div>
     <div class="column">
@@ -1388,13 +1399,14 @@ function addCart5Pax(paxCount) {
     $counterPaxCart5 = paxCount;
 }
 
-$cart1Date = "2 April 2016"
-$cart2Date = "9 April 2016"
-$cart3Date = "15 April 2016"
-$cart4Date = "16 April 2016"
-$cart5Date = "18 April 2016"
+$cart1Date = sessionStorage.date1
+$cart2Date = sessionStorage.date2
+$cart3Date = sessionStorage.date3
+$cart4Date = sessionStorage.date4
+$cart5Date = sessionStorage.date5
 
-if($cart1Date == "0"){
+
+if($cart1Date == undefined){
   document.getElementById("cart1").style.visibility="hidden"; 
   document.getElementById("dish1cart1").style.visibility="hidden";
   document.getElementById("dish2cart1").style.visibility="hidden";
@@ -1404,8 +1416,19 @@ if($cart1Date == "0"){
   document.getElementById("dish6cart1").style.visibility="hidden";
   document.getElementById("dish7cart1").style.visibility="hidden";
   document.getElementById("dish8cart1").style.visibility="hidden";
+}else{
+  document.getElementById('cart1Date').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish1').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish2').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish3').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish4').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish5').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish6').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish7').innerHTML = JSON.parse($cart1Date).date;
+  document.getElementById('cart1DateDish8').innerHTML = JSON.parse($cart1Date).date;
 }
-if($cart2Date == "0"){
+
+if($cart2Date == undefined){
   document.getElementById("cart2").style.visibility="hidden";
   document.getElementById("dish1cart2").style.visibility="hidden";
   document.getElementById("dish2cart2").style.visibility="hidden";
@@ -1415,8 +1438,19 @@ if($cart2Date == "0"){
   document.getElementById("dish6cart2").style.visibility="hidden";
   document.getElementById("dish7cart2").style.visibility="hidden";
   document.getElementById("dish8cart2").style.visibility="hidden";
+}else{
+  document.getElementById('cart2Date').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish1').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish2').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish3').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish4').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish5').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish6').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish7').innerHTML = JSON.parse($cart2Date).date;
+  document.getElementById('cart2DateDish8').innerHTML = JSON.parse($cart2Date).date;
 }
-if($cart3Date == "0"){
+
+if($cart3Date == undefined){
   document.getElementById("cart3").style.visibility="hidden";
   document.getElementById("dish1cart3").style.visibility="hidden";
   document.getElementById("dish2cart3").style.visibility="hidden";
@@ -1426,8 +1460,19 @@ if($cart3Date == "0"){
   document.getElementById("dish6cart3").style.visibility="hidden";
   document.getElementById("dish7cart3").style.visibility="hidden";
   document.getElementById("dish8cart3").style.visibility="hidden";
+}else{
+  document.getElementById('cart3Date').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish1').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish2').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish3').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish4').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish5').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish6').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish7').innerHTML = JSON.parse($cart3Date).date;
+  document.getElementById('cart3DateDish8').innerHTML = JSON.parse($cart3Date).date;
 }
-if($cart4Date == "0"){
+
+if($cart4Date == undefined){
   document.getElementById("cart4").style.visibility="hidden";
   document.getElementById("dish1cart4").style.visibility="hidden";
   document.getElementById("dish2cart4").style.visibility="hidden";
@@ -1437,8 +1482,19 @@ if($cart4Date == "0"){
   document.getElementById("dish6cart4").style.visibility="hidden";
   document.getElementById("dish7cart4").style.visibility="hidden";
   document.getElementById("dish8cart4").style.visibility="hidden";
+}else{
+  document.getElementById('cart4Date').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish1').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish2').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish3').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish4').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish5').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish6').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish7').innerHTML = JSON.parse($cart4Date).date;
+  document.getElementById('cart4DateDish8').innerHTML = JSON.parse($cart4Date).date;
 }
-if($cart5Date == "0"){
+
+if($cart5Date == undefined){
   document.getElementById("cart5").style.visibility="hidden";
   document.getElementById("dish1cart5").style.visibility="hidden";
   document.getElementById("dish2cart5").style.visibility="hidden";
@@ -1449,7 +1505,15 @@ if($cart5Date == "0"){
   document.getElementById("dish7cart5").style.visibility="hidden";
   document.getElementById("dish8cart5").style.visibility="hidden";
 }else{
-  document.getElementById('cart5Date').innerHTML = $cart5Date;
+  document.getElementById('cart5Date').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish1').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish2').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish3').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish4').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish5').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish6').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish7').innerHTML = JSON.parse($cart5Date).date;
+  document.getElementById('cart5DateDish8').innerHTML = JSON.parse($cart5Date).date;
 }
 
 </script>
@@ -1486,5 +1550,3 @@ if($cart5Date == "0"){
 </html>
   <script src="../bower_components/Sortable/Sortable.js"></script>
   <script src="../bower_components/Sortable/ng-sortable.js"></script>
-  <!--<script src="../app.js"></script>-->
-
