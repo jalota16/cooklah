@@ -259,12 +259,16 @@
 	<script>
 
 	validateEdit = function(){
-	
+	try{
 		var loginStatus = JSON.parse(sessionStorage.setLogin);
 		console.log(loginStatus.loggedIn);
 		if(loginStatus.loggedIn == "true"){
 			document.location.href = "choose_meals_overlay.html";
 		} else {
+			document.location.href = "login.html";
+		}
+		} catch(err){
+			console.log("User undefined to edit");
 			document.location.href = "login.html";
 		}
 	};
