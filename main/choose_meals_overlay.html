@@ -324,17 +324,29 @@
 		}
 		
 		if($("#date2").is(":visible")){
+					
 					hideModal = false;
 					if(document.getElementById("d2").value == ""){
 						 $("#errorMsg").show();
-					} else {hideModal = true;}
+					} else {
+						var date2 = {'date':document.getElementById("d2").value};
+						sessionStorage.setItem('date2', JSON.stringify(date2));
+						var obj2 = JSON.parse(sessionStorage.date2);
+						hideModal = true;
+					
+					}
 					
 				}
 				if($("#date3").is(":visible")){
 					hideModal = false;
 					if(document.getElementById("d3").value == ""){
 						 $("#errorMsg").show();
-					} else {hideModal = true;}
+					} else {
+						var date3 = {'date':document.getElementById("d3").value};
+						sessionStorage.setItem('date3', JSON.stringify(date3));
+						var obj3 = JSON.parse(sessionStorage.date3);
+						hideModal = true;
+					}
 					
 				} 
 				
@@ -342,7 +354,13 @@
 					hideModal = false;
 					if(document.getElementById("d4").value == ""){
 						 $("#errorMsg").show();
-					} else {hideModal = true;}
+					} else {
+						var date4 = {'date':document.getElementById("d4").value};
+						sessionStorage.setItem('date4', JSON.stringify(date4));
+						var obj4 = JSON.parse(sessionStorage.date4);
+						hideModal = true;
+					
+					}
 					
 				} 
 				
@@ -350,14 +368,25 @@
 					hideModal = false;
 					if(document.getElementById("d5").value == ""){
 						 $("#errorMsg").show();
-					} else {hideModal = true;}
+					} else {
+						var date5 = {'date':document.getElementById("d5").value};
+						sessionStorage.setItem('date5', JSON.stringify(date5));
+						var obj5 = JSON.parse(sessionStorage.date5);
+						hideModal = true;
+					}
 					
 				} 
 				
 			if(hideModal){
+				var date1 = {'date':document.getElementById("d1").value};
+				sessionStorage.setItem('date1', JSON.stringify(date1));
+				var obj1 = JSON.parse(sessionStorage.date1);
+				
 				$("#errorMsg").hide();
 				$('.ui.modal').modal('hide');
+				
 			}
+			
 	}
 </script>
 <div class="ui small modal">
