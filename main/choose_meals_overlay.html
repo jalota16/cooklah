@@ -168,6 +168,12 @@
         })
       ;
 
+      $('.ui.dropdown')
+        .dropdown({
+          on: 'click'
+        })
+      ;
+
       // create sidebar and attach to menu open
       $('.ui.sidebar')
         .sidebar('attach events', '.toc.item')
@@ -602,15 +608,30 @@
 
       <div class="ui left floated small blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
-      <p>2 April 2016</p>
-      <div class="ui button" onclick="addToCart1('Sesame salmon')">Add</div>
-    </div>
+              <p>2 April 2016</p>
+                <div class="ui button" onclick="addToCart1('Sesame salmon')">Add</div>
+            </div>
     <div class="column">
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Sesame salmon')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Sesame salmon')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Sesame salmon')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Sesame salmon')">Add</div>
+            </div>
+    <div class="column">
+            </div>
+
   </div>
 </div>
 
@@ -647,7 +668,7 @@
 
     <div class="ui left floated small blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Herb baked chicken')">Add</div>
@@ -656,6 +677,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Herb baked chicken')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Herb baked chicken')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Herb baked chicken')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Herb baked chicken')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -694,7 +729,7 @@
 
     <div class="ui left floated small blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Grilled Lamb Ribs')">Add</div>
@@ -703,6 +738,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Grilled Lamb Ribs')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Grilled Lamb Ribs')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Grilled Lamb Ribs')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Grilled Lamb Ribs')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -726,7 +775,7 @@
     </div>
 <div class="column">
 <div class="ui circular segment">
-  <h2 class="ui medium header">
+  <h2 class="ui small header">
     2 April 2016
 
 <div class="ui compact selection dropdown">
@@ -745,6 +794,29 @@
 
   </h2>
 </div>
+
+</br>
+
+<div class="ui circular segment">
+  <h2 class="ui small header">
+    9 April 2016
+
+<div class="ui compact selection dropdown">
+  <i class="dropdown icon"></i>
+  <div class="text">Pax</div>
+  <div class="menu">
+    <div class="item" onclick="addCart2Pax('1')">1 Pax</div>
+    <div class="item" onclick="addCart2Pax('2')">2 Pax</div>
+    <div class="item" onclick="addCart2Pax('3')">3 Pax</div>
+    <div class="item" onclick="addCart2Pax('4')">4 Pax</div>
+    <div class="item" onclick="addCart2Pax('5')">5 Pax</div>
+  </div>
+</div>
+
+    <div class="sub header", id="cart2list"></div>
+  </h2>
+</div>
+
 </div>
     <div class="column">
       <div class="ui card">
@@ -760,7 +832,7 @@
 
     <div class="ui left floated small blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Grilled sirloin steak')">Add</div>
@@ -769,6 +841,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Grilled sirloin steak')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Grilled sirloin steak')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Grilled sirloin steak')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Grilled sirloin steak')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -805,7 +891,7 @@
 
     <div class="ui small left floated blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Korean Bibimbap')">Add</div>
@@ -814,6 +900,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Korean Bibimbap')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Korean Bibimbap')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Korean Bibimbap')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Korean Bibimbap')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -852,7 +952,7 @@
 
     <div class="ui small left floated blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Baked rainbow trout')">Add</div>
@@ -861,6 +961,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Baked rainbow trout')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Baked rainbow trout')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Baked rainbow trout')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Baked rainbow trout')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -885,24 +999,47 @@
     </div>
     <div class="column">
 <div class="ui circular segment">
-  <h2 class="ui medium header">
-    9 April 2016
+  <h2 class="ui small header">
+    15 April 2016
 
 <div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
   <div class="text">Pax</div>
   <div class="menu">
-    <div class="item" onclick="addCart2Pax('1')">1 Pax</div>
-    <div class="item" onclick="addCart2Pax('2')">2 Pax</div>
-    <div class="item" onclick="addCart2Pax('3')">3 Pax</div>
-    <div class="item" onclick="addCart2Pax('4')">4 Pax</div>
-    <div class="item" onclick="addCart2Pax('5')">5 Pax</div>
+    <div class="item" onclick="addCart3Pax('1')">1 Pax</div>
+    <div class="item" onclick="addCart3Pax('2')">2 Pax</div>
+    <div class="item" onclick="addCart3Pax('3')">3 Pax</div>
+    <div class="item" onclick="addCart3Pax('4')">4 Pax</div>
+    <div class="item" onclick="addCart3Pax('5')">5 Pax</div>
   </div>
 </div>
 
-    <div class="sub header", id="cart2list"></div>
+    <div class="sub header", id="cart3list"></div>
   </h2>
 </div>
+
+</br>
+
+<div class="ui circular segment">
+  <h2 class="ui small header">
+    16 April 2016
+
+<div class="ui compact selection dropdown">
+  <i class="dropdown icon"></i>
+  <div class="text">Pax</div>
+  <div class="menu">
+    <div class="item" onclick="addCart4Pax('1')">1 Pax</div>
+    <div class="item" onclick="addCart4Pax('2')">2 Pax</div>
+    <div class="item" onclick="addCart4Pax('3')">3 Pax</div>
+    <div class="item" onclick="addCart4Pax('4')">4 Pax</div>
+    <div class="item" onclick="addCart4Pax('5')">5 Pax</div>
+  </div>
+</div>
+
+    <div class="sub header", id="cart4list"></div>
+  </h2>
+</div>
+
 </div>
 
 <div class="column">
@@ -919,7 +1056,7 @@
 
     <div class="ui small left floated blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Guacamole Tacos')">Add</div>
@@ -928,6 +1065,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Guacamole Tacos')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Guacamole Tacos')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Guacamole Tacos')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Guacamole Tacos')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -964,7 +1115,7 @@
 
     <div class="ui small left floated blue button add icon"><i class="large add icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
-          <div class="ui two column divided center aligned grid">
+          <div class="ui three column divided center aligned grid">
             <div class="column">
       <p>2 April 2016</p>
       <div class="ui button" onclick="addToCart1('Thai Tom Yum')">Add</div>
@@ -973,6 +1124,20 @@
       <p>9 April 2016</p>
       <div class="ui button" onclick="addToCart2('Thai Tom Yum')">Add</div>
     </div>
+    <div class="column">
+              <p>15 April 2016</p>
+                <div class="ui button" onclick="addToCart3('Thai Tom Yum')">Add</div>
+            </div>
+    <div class="column">
+              <p>16 April 2016</p>
+                <div class="ui button" onclick="addToCart4('Thai Tom Yum')">Add</div>
+            </div>
+    <div class="column">
+              <p>17 April 2016</p>
+                <div class="ui button" onclick="addToCart5('Thai Tom Yum')">Add</div>
+            </div>
+    <div class="column">
+            </div>
   </div>
 </div>
 
@@ -995,10 +1160,33 @@
     </div>
     </div>
   </div>
+
+  <div class="column"></div>
+
+  <div class="column">
+<div class="ui circular segment">
+  <h2 class="ui small header">
+    17 April 2016
+
+<div class="ui compact selection dropdown">
+  <i class="dropdown icon"></i>
+  <div class="text">Pax</div>
+  <div class="menu">
+    <div class="item" onclick="addCart5Pax('1')">1 Pax</div>
+    <div class="item" onclick="addCart5Pax('2')">2 Pax</div>
+    <div class="item" onclick="addCart5Pax('3')">3 Pax</div>
+    <div class="item" onclick="addCart5Pax('4')">4 Pax</div>
+    <div class="item" onclick="addCart5Pax('5')">5 Pax</div>
+  </div>
+</div>
+
+    <div class="sub header", id="cart5list"></div>
+  </h2>
+</div>
+
 </div>
 </div>
 
-</br>
 
 <div class = "ui container">
   <div class="ui four column grid">
@@ -1072,6 +1260,9 @@ $(document)
 <script>
 var $counterCart1 = 0
 var $counterCart2 = 0
+var $counterCart3 = 0
+var $counterCart4 = 0
+var $counterCart5 = 0
 function addToCart1(dishName) {
     $counterCart1 += 1
         if($counterCart1 > 1){
@@ -1092,6 +1283,36 @@ function addToCart2(dishName) {
         }
 }
 
+function addToCart3(dishName) {
+    $counterCart3 += 1
+        if($counterCart3 > 1){
+          $counterCart3 -= 1;
+          window.alert("1 Meal per Date");
+        }else{
+          $("#cart3list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>");
+        }
+}
+
+function addToCart4(dishName) {
+    $counterCart4 += 1
+        if($counterCart4 > 1){
+          $counterCart4 -= 1;
+          window.alert("1 Meal per Date");
+        }else{
+          $("#cart4list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>");
+        }
+}
+
+function addToCart5(dishName) {
+    $counterCart5 += 1
+        if($counterCart5 > 1){
+          $counterCart5 -= 1;
+          window.alert("1 Meal per Date");
+        }else{
+          $("#cart5list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>");
+        }
+}
+
 function removeDishCart1(){
   $('#cart1list').empty();
   $counterCart1 -= 1;
@@ -1102,13 +1323,40 @@ function removeDishCart2(){
   $counterCart2 -= 1;
 }
 
+function removeDishCart3(){
+  $('#cart3list').empty();
+  $counterCart3 -= 1;
+}
+
+function removeDishCart4(){
+  $('#cart4list').empty();
+  $counterCart4 -= 1;
+}
+
+function removeDishCart5(){
+  $('#cart5list').empty();
+  $counterCart5 -= 1;
+}
+
 var $counterPaxCart1 = 0
 var $counterPaxCart2 = 0
+var $counterPaxCart3 = 0
+var $counterPaxCart4 = 0
+var $counterPaxCart5 = 0
 function addCart1Pax(paxCount) {
     $counterPaxCart1 = paxCount;
 }
 function addCart2Pax(paxCount) {
     $counterPaxCart2 = paxCount;
+}
+function addCart3Pax(paxCount) {
+    $counterPaxCart3 = paxCount;
+}
+function addCart4Pax(paxCount) {
+    $counterPaxCart4 = paxCount;
+}
+function addCart5Pax(paxCount) {
+    $counterPaxCart5 = paxCount;
 }
 </script>
 
