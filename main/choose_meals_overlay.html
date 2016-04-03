@@ -1166,7 +1166,7 @@
   <div class="column">
 <div class="ui circular segment" id="cart5">
   <h2 class="ui small header">
-    17 April 2016
+    <div id='cart5Date'></div>
 
 <div class="ui compact selection dropdown">
   <i class="dropdown icon"></i>
@@ -1363,7 +1363,7 @@ $cart1Date = "2 April 2016"
 $cart2Date = "9 April 2016"
 $cart3Date = "15 April 2016"
 $cart4Date = "16 April 2016"
-$cart5Date = "0"
+$cart5Date = "18 April 2016"
 
 if($cart1Date == "0"){
   document.getElementById("cart1").style.visibility="hidden"; 
@@ -1419,7 +1419,10 @@ if($cart5Date == "0"){
   document.getElementById("dish6cart5").style.visibility="hidden";
   document.getElementById("dish7cart5").style.visibility="hidden";
   document.getElementById("dish8cart5").style.visibility="hidden";
+}else{
+  document.getElementById('cart5Date').innerHTML = $cart5Date;
 }
+
 </script>
 
 
