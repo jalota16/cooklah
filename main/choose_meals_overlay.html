@@ -774,7 +774,7 @@
     </div>
     </div>
 <div class="column">
-<div class="ui circular segment">
+<div class="ui circular segment" id="cart1">
   <h2 class="ui small header">
     2 April 2016
 
@@ -797,7 +797,7 @@
 
 </br>
 
-<div class="ui circular segment">
+<div class="ui circular segment" id="cart2">
   <h2 class="ui small header">
     9 April 2016
 
@@ -998,7 +998,7 @@
     </div>
     </div>
     <div class="column">
-<div class="ui circular segment">
+<div class="ui circular segment" id="cart3">
   <h2 class="ui small header">
     15 April 2016
 
@@ -1020,7 +1020,7 @@
 
 </br>
 
-<div class="ui circular segment">
+<div class="ui circular segment" id="cart4">
   <h2 class="ui small header">
     16 April 2016
 
@@ -1164,7 +1164,7 @@
   <div class="column"></div>
 
   <div class="column">
-<div class="ui circular segment">
+<div class="ui circular segment" id="cart5">
   <h2 class="ui small header">
     17 April 2016
 
@@ -1357,6 +1357,24 @@ function addCart4Pax(paxCount) {
 }
 function addCart5Pax(paxCount) {
     $counterPaxCart5 = paxCount;
+}
+
+$cart1Date = "2 April 2016"
+$cart2Date = "9 April 2016"
+$cart3Date = "15 April 2016"
+$cart4Date = "16 April 2016"
+$cart5Date = "0"
+
+if($cart1Date == "0"){
+  document.getElementById("cart1").style.visibility="hidden"; 
+}else if($cart2Date == "0"){
+  document.getElementById("cart2").style.visibility="hidden"; 
+}else if($cart3Date == "0"){
+  document.getElementById("cart3").style.visibility="hidden"; 
+}else if($cart4Date == "0"){
+  document.getElementById("cart4").style.visibility="hidden"; 
+}else if($cart5Date == "0"){
+  document.getElementById("cart5").style.visibility="hidden"; 
 }
 </script>
 
