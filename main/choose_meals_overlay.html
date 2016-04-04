@@ -1570,18 +1570,43 @@ function checkNumberMeals() {
       return
     }
   }
-    //var pax = {'pax1': $counterPaxCart1, 'pax2': $counterPaxCart2, 'pax3': $counterPaxCart3, 'pax4':$counterPaxCart1, 'pax5':$counterPaxCart5}
-	var pax1 = {'pax': $counterPaxCart1}
-	var pax2 = {'pax': $counterPaxCart2}
-	var pax3 = {'pax': $counterPaxCart3}
-	var pax4 = {'pax': $counterPaxCart4}
-	var pax5 = {'pax': $counterPaxCart5}
-    sessionStorage.setItem('pax1', JSON.stringify(pax1))
-    sessionStorage.setItem('pax2', JSON.stringify(pax2))
-    sessionStorage.setItem('pax3', JSON.stringify(pax3))
-    sessionStorage.setItem('pax4', JSON.stringify(pax4))
-    sessionStorage.setItem('pax5', JSON.stringify(pax5))
-    window.location.href = "details.html";
+	
+  if (sessionStorage.counterPaxCart1 != undefined){
+    var pax1 = {'pax': sessionStorage.counterPaxCart1}
+  }else{
+    var pax1 = {'pax': $counterPaxCart1}
+  }
+
+  if (sessionStorage.counterPaxCart2 != undefined){
+    var pax2 = {'pax': sessionStorage.counterPaxCart2}
+  }else{
+    var pax2 = {'pax': $counterPaxCart2}
+  }
+
+  if (sessionStorage.counterPaxCart3 != undefined){
+    var pax3 = {'pax': sessionStorage.counterPaxCart3}
+  }else{
+    var pax3 = {'pax': $counterPaxCart3}
+  }
+
+  if (sessionStorage.counterPaxCart4 != undefined){
+    var pax4 = {'pax': sessionStorage.counterPaxCart4}
+  }else{
+    var pax4 = {'pax': $counterPaxCart4}
+  }
+
+  if (sessionStorage.counterPaxCart5 != undefined){
+    var pax5 = {'pax': sessionStorage.counterPaxCart5}
+  }else{
+    var pax5 = {'pax': $counterPaxCart5}
+  }
+  
+  sessionStorage.setItem('pax1', JSON.stringify(pax1))
+  sessionStorage.setItem('pax2', JSON.stringify(pax2))
+  sessionStorage.setItem('pax3', JSON.stringify(pax3))
+  sessionStorage.setItem('pax4', JSON.stringify(pax4))
+  sessionStorage.setItem('pax5', JSON.stringify(pax5))
+  window.location.href = "details.html";
 }
 </script>
 
