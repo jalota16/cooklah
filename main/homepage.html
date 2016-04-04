@@ -228,7 +228,6 @@
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
   <a class="active item">Home</a>
-  <a class="item" href = "all_plans.html">Plans</a>
         <a href = "weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
         
@@ -262,6 +261,9 @@
 	try{
 		var loginStatus = JSON.parse(sessionStorage.setLogin);
 		console.log(loginStatus.loggedIn);
+		var edit = {'edit':true};
+		sessionStorage.setItem('edit', JSON.stringify(edit));
+		var obj2 = JSON.parse(sessionStorage.edit);
 		if(loginStatus.loggedIn == "true"){
 			document.location.href = "choose_meals_overlay.html";
 		} else {
@@ -272,6 +274,18 @@
 			document.location.href = "login.html";
 		}
 	};
+	
+	validateStart = function(){
+		var edit = {'edit':false};
+		sessionStorage.setItem('edit', JSON.stringify(edit));
+		var obj2 = JSON.parse(sessionStorage.edit);
+		document.location.href = "choose_meals_overlay.html";
+		delete sessionStorage.date1;
+		delete sessionStorage.date2;
+		delete sessionStorage.date3;
+		delete sessionStorage.date4;
+		delete sessionStorage.date5;
+	}
 
 	</script>
     <div>
@@ -284,7 +298,7 @@
       </h1>
       <h2 style = "color:#FFFFFF !important;">Cook Easy, Eat Healthy...</h2>
 	  <h2 style = "color:#FFFFFF !important;">Get Recipes from World Class Chefs...</h2>
-<a href = "choose_meals_overlay.html" id ="seeAllPlans" class="ui huge primary button">Start Ordering</a>
+<a id ="seeAllPlans" class="ui huge primary button" onclick = "validateStart()">Start Ordering</a>
        <button id ="howitworks" class="ui huge primary button">How It Works</button>
 	   <a id ="seeAllPlans" class="ui huge primary button" onclick = "validateEdit()">Edit Order</a>
     </div>

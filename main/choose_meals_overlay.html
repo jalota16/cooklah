@@ -36,7 +36,7 @@
   <script src="../dist/components/dropdown.js"></script>
   <script src="../dist/components/visibility.js"></script>
   
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
   <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
@@ -153,14 +153,53 @@
 
 <script type="text/javascript">
 function checkModal(){
-  if(sessionStorage.date1 == undefined ){
-
-    $('.small.modal')
+	$("#modal2")
+      .modal('setting', 'closable', false)
+      .modal('hide')
+      ;
+  var ed = JSON.parse(sessionStorage.edit).edit;
+  if(ed == false ){
+	$("#msg").hide();
+    $("#modal1")
       .modal('setting', 'closable', false)
       .modal('show')
       ;
   }
+  else if(ed == true && sessionStorage.date1 == undefined ){
+	$("#msg").show();
+	$("#msg").show();
+  }
+  else if(ed == true){
+	$("#msg").hide();
+  }
 
+}
+
+function checkUser(){
+	try{
+	var loginStatus = JSON.parse(sessionStorage.setLogin).loggedIn;
+	var obj = JSON.parse(sessionStorage.user);
+	if(loginStatus) {
+		document.getElementById('loginSpace').innerHTML = '';
+
+			var h3 = document.createElement('h3');
+			h3.innerHTML = "Welcome "+ obj.name;
+			document.getElementById('loginSpace').appendChild(h3);
+			//var button = document.createElement('button');
+			//button.className = "ui button"
+			//button.innerHTML = "Log Out";
+			//document.getElementById('loginSpace').appendChild(button);
+			document.getElementById('followLogin').innerHTML = '';
+
+			var h2 = document.createElement('h2');
+			h2.innerHTML = "Welcome "+ obj.name;
+			document.getElementById('followLogin').appendChild(h2);
+		$("#signup").hide();
+		$("#signupfields").hide();
+	}
+  }catch(err){
+  console.log("dc");
+  }
 }
 </script>
 
@@ -193,6 +232,7 @@ function checkModal(){
       ;
 
       checkModal();
+	  checkUser();
     
       $('#example1').calendar({
         type: 'date'
@@ -239,6 +279,96 @@ function checkModal(){
 		}
     })
   ;
+  
+  function editDates() {
+		console.log("sdvv");
+		$('#ex1').calendar({
+        type: 'date'
+      });
+	  
+	  $('#ex2').calendar({
+        type: 'date'
+      });
+	  
+	  $('#ex3').calendar({
+        type: 'date'
+      });
+	  
+	  $('#ex4').calendar({
+        type: 'date'
+      });
+	  
+	  $('#ex5').calendar({
+        type: 'date'
+      });
+		var ed1 = sessionStorage.date1;
+		var ed2 = sessionStorage.date2;
+		var ed3 = sessionStorage.date3;
+		var ed4 = sessionStorage.date4;
+		var ed5 = sessionStorage.date5;
+		$("#modal2")
+		.modal('setting', 'closable', false)
+      .modal('show')
+      ;
+		if(ed1 == undefined)
+		{
+			$("#editdate1").hide();
+			$("#editdate2").hide();
+			$("#editdate3").hide();
+			$("#editdate4").hide();
+			$("#editdate5").hide();
+			$("#errorMsg2").show();
+			$("#errorMsg3").hide();
+		}
+	  
+		else if(ed2 == undefined)
+		{
+			document.getElementById("ed1").value = JSON.parse(ed1).date
+			$("#editdate1").show();
+			$("#editdate2").hide();
+			$("#editdate3").hide();
+			$("#editdate4").hide();
+			$("#editdate5").hide();
+			$("#errorMsg2").hide();
+			$("#errorMsg3").hide();
+			
+		}
+		else if(ed3 == undefined)
+		{
+			document.getElementById("ed2").value = JSON.parse(ed2).date
+			$("#editdate1").show();
+			$("#editdate2").show();
+			$("#editdate3").hide();
+			$("#editdate4").hide();
+			$("#editdate5").hide();
+			$("#errorMsg2").hide();
+			$("#errorMsg3").hide();
+
+		}
+		else if(ed4 == undefined)
+		{
+			document.getElementById("ed3").value = JSON.parse(ed3).date
+			$("#editdate1").show();
+			$("#editdate2").show();
+			$("#editdate3").show();
+			$("#editdate4").hide();
+			$("#editdate5").hide();
+			$("#errorMsg2").hide();
+			$("#errorMsg3").hide();
+		}
+		else if(ed5 == undefined)
+		{
+			document.getElementById("ed4").value = JSON.parse(ed4).date
+			$("#editdate1").show();
+			$("#editdate2").show();
+			$("#editdate3").show();
+			$("#editdate4").show();
+			$("#editdate5").hide();
+			$("#errorMsg2").hide();
+			$("#errorMsg3").hide();
+		}
+		
+	}
   </script>
   <script src="../dist/components/modal.js"></script>
 </head>
@@ -248,11 +378,10 @@ function checkModal(){
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
     <a href = "homepage.html" class="item">Home</a>
-    <a class="active item" href = "all_plans.html">Plans</a>
         <a href = "weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
      
-    <div class="right menu">
+    <div id = "followLogin" class="right menu">
       <div class="item">
         <a class="ui button">Log in</a>
       </div>
@@ -266,7 +395,6 @@ function checkModal(){
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
   <a chref = "homepage.html" lass="item">Home</a>
-  <a class="active item" href = "all_plans.html">Plans</a>
         <a href = "weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
         
@@ -285,13 +413,12 @@ function checkModal(){
           <i class="sidebar icon"></i>
         </a>
         <a href ="homepage.html" class="item">Home</a>
-        <a href = "all_plans.html" class="active item" href = "all_plans.html">Plans</a>
         <a href ="weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
     
         <div id = "loginSpace" class="right item">
-          <a href ="login.html" class="ui button">Log in</a>
-          <a class="ui button">Sign Up</a>
+          <a id = "login" href ="login.html" class="ui button">Log in</a>
+          <a id = "signup" class="ui button">Sign Up</a>
         </div>
       </div>
     </div>
@@ -324,6 +451,9 @@ function checkModal(){
       </div>
     </div>
   </div>
+  <p id="msg" style="font-size:25px"> You have no order to edit</p>
+  <a onclick = "editDates(); return false;" id = "editDate" class="ui large blue button" style="margin-left:1000px">Edit Dates</a>
+  <br/>
 <script>
 	validateDate = function(){
 	//console.log($("#date2").is(":visible"));
@@ -394,13 +524,240 @@ function checkModal(){
 				var obj1 = JSON.parse(sessionStorage.date1);
 				
 				$("#errorMsg").hide();
-				$('.ui.modal').modal('hide');
+				
+				var edit = {'edit':true};
+				sessionStorage.setItem('edit', JSON.stringify(edit));
+				var obj2 = JSON.parse(sessionStorage.edit);
+				
+				window.location.reload();
 				
 			}
-			window.location.reload();
+			
 	}
+	
+	
 </script>
-<div class="ui small modal">
+<div class="ui small modal" id="modal2">
+  <h3 class="ui header">Edit Dates - Within 4 weeks from tomorrow</h3>
+  <div class="column">
+
+  <div id = "errorMsg2" class="ui error message">There are no dates to edit</div>
+  <div id = "errorMsg3" class="ui error message">Please select dates before proceeding</div>
+  <div id="editdate1" style="margin: 20px">
+  <div class="ui input">
+  <div class="ui calendar" id="ex1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="ed1" type="text" placeholder="Date/Time" style="width:150px"/>
+  </div>
+  </div>
+  </div>
+   </div>
+
+   </div>
+   <div class="column">
+  <form name="form2">
+   <div id="editdate2" style="margin: 20px">
+     <div class="ui input">
+  <div class="ui calendar" id="ex2">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="ed2" type="text" placeholder="Date/Time" style="width:150px">
+  </div>
+  </div>
+   </div>
+   </div>
+     </form>
+   </div>
+   <div class="column">
+   <form name="form3">
+   <div id="editdate3" style="margin: 20px">
+     <div class="ui input">
+  <div class="ui calendar" id="ex3">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="ed3" type="text" placeholder="Date/Time" style="width:150px">
+  </div>
+  </div>
+   </div>
+   </div>
+   </form>
+     
+   </div>
+   <div class="column">
+   <form name="form4">
+  <div id="editdate4" style="margin: 20px">
+     <div class="ui input">
+  <div class="ui calendar" id="ex4">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="ed4" type="text" placeholder="Date/Time" style="width:150px">
+  </div>
+  </div>
+   </div>
+   </div>
+   </form>
+
+   </div>
+   <div class="column">
+   <form name="form5">
+   <div id="editdate5" style="margin: 20px">
+    <div class="ui input"> 
+  <div class="ui calendar" id="ex5">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input id="ed5" type="text" placeholder="Date/Time" style="width:150px">
+  </div>
+  </div>
+  </div>
+  </div>
+  </form>
+  </div>
+  <script>
+  $("#date2").hide();
+  $("#date3").hide();
+  $("#date4").hide();
+  $("#date5").hide();
+  $("#add1").on("click", function(e){
+	e.preventDefault();
+    $("#date2").show();
+    $("#date3").hide();
+    $("#date4").hide();
+    $("#date5").hide();
+    $("#add1").hide();
+  });
+  $("#add2").on("click", function(e){
+	e.preventDefault();
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").hide();
+    $("#date5").hide();
+    $("#add2").hide();
+  });
+  $("#add3").on("click", function(e){
+	e.preventDefault();
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").show();
+    $("#date5").hide();
+    $("#add3").hide();
+  });
+  $("#add4").on("click", function(e){
+	e.preventDefault();
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").show();
+    $("#date5").show();
+    $("#add4").hide();
+  });
+  $("#delete2").on("click", function(e){
+	e.preventDefault();
+    $("#date1").show();
+	$("#add1").show();
+    $("#date2").hide();
+    $("#date3").hide();
+    $("#date4").hide();
+    $("#date5").hide();
+  });
+  $("#delete3").on("click", function(e){
+	e.preventDefault();
+    $("#date1").show();
+    $("#date2").show();
+	$("#add2").show();
+    $("#date3").hide();
+    $("#date4").hide();
+    $("#date5").hide();
+  });
+  $("#delete4").on("click", function(e){
+	e.preventDefault();
+    $("#date1").show();
+    $("#date2").show();
+    $("#date3").show();
+	$("#add3").show();
+    $("#date4").hide();
+    $("#date5").hide();
+  });
+  $("#delete5").on("click", function(e){
+	e.preventDefault();
+    $("#date1").show();
+    $("#date2").show();
+    $("#date3").show();
+    $("#date4").show();
+	$("#add4").show();
+    $("#date5").hide();
+  });
+  
+  function done(){
+	console.log("gbb");
+	var hideModal = true;
+	if($("#editdate1").is(":visible")){	
+		if(document.getElementById("ed1").value == ""){
+			 $("#errorMsg3").show();
+			 hideModal = false;
+		} else {
+			var date1 = {'date':document.getElementById("ed1").value};
+			sessionStorage.setItem('date1', JSON.stringify(date1));
+			var obj1 = JSON.parse(sessionStorage.date1);
+		}
+	}
+	if($("#editdate2").is(":visible")){	
+		if(document.getElementById("ed2").value == ""){
+			 $("#errorMsg3").show();
+			 hideModal = false;
+		} else {
+			var date2 = {'date':document.getElementById("ed2").value};
+			sessionStorage.setItem('date2', JSON.stringify(date2));
+			var obj2 = JSON.parse(sessionStorage.date2);
+		}
+	}
+	if($("#editdate3").is(":visible")){	
+		if(document.getElementById("ed3").value == ""){
+			 $("#errorMsg3").show();
+			 hideModal = false;
+		} else {
+			var date3 = {'date':document.getElementById("ed3").value};
+			sessionStorage.setItem('date3', JSON.stringify(date3));
+			var obj3 = JSON.parse(sessionStorage.date3);
+		}
+	}
+	if($("#editdate4").is(":visible")){	
+		if(document.getElementById("ed4").value == ""){
+			 $("#errorMsg3").show();
+			 hideModal = false;
+		} else {
+			var date4 = {'date':document.getElementById("ed4").value};
+			sessionStorage.setItem('date4', JSON.stringify(date4));
+			var obj4 = JSON.parse(sessionStorage.date4);
+		}
+	}
+	if($("#editdate5").is(":visible")){	
+		if(document.getElementById("ed5").value == ""){
+			 $("#errorMsg3").show();
+			 hideModal = false;
+		} else {
+			var date5 = {'date':document.getElementById("ed5").value};
+			sessionStorage.setItem('date5', JSON.stringify(date5));
+			var obj5 = JSON.parse(sessionStorage.date5);
+		}
+	}
+	
+	if(hideModal) {
+		var edit = {'edit':true};
+		sessionStorage.setItem('edit', JSON.stringify(edit));
+		var obj2 = JSON.parse(sessionStorage.edit);
+		$("#errorMsg3").hide();
+		window.location.reload();
+	}
+  }
+
+  </script>
+  <div class="actions">
+  <button onclick="done(); return false;" class="ui large button">Done</button>
+  
+  </div>
+  </div>
+  </div>
+<div class="ui small modal" id="modal1">
   <h3 class="ui header">Choose Dates - Within 4 weeks from tomorrow</h3>
   <p style="margin: 20px" id="txt"><i>Please enter date/time</i></p>
   
@@ -408,22 +765,11 @@ function checkModal(){
 
   
   <div id="date1" style="margin: 20px">
-  <div class="ui right labeled input">
+  <div class="ui input">
   <div class="ui calendar" id="example1">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d1" type="text" placeholder="Date/Time" style="width:150px"/>
-    <div class="ui dropdown label" id="dropdown1">
-        <div class="text" style="font-size:15px">Time Window</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">10:00-11:00</div>
-          <div class="item">11:00-12:00</div>
-          <div class="item">18:00-19:00</div>
-      <div class="item">19:00-20:00</div>
-      <div class="item">21:00-22:00</div>
-        </div>
-      </div>
   </div>
   
   &nbsp;&nbsp;
@@ -436,22 +782,11 @@ function checkModal(){
    <div class="column">
   <form name="form2">
    <div id="date2" style="margin: 20px">
-     <div class="ui right labeled input">
+     <div class="ui input">
   <div class="ui calendar" id="example2">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d2" type="text" placeholder="Date/Time" style="width:150px">
-    <div class="ui dropdown label" id="dropdown2">
-        <div class="text" style="font-size:15px">Time Window</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">10:00-11:00</div>
-          <div class="item">11:00-12:00</div>
-          <div class="item">18:00-19:00</div>
-      <div class="item">19:00-20:00</div>
-      <div class="item">21:00-22:00</div>
-        </div>
-      </div>
   </div>
   &nbsp;&nbsp;
   <button id="add2" class="ui green small button">Add another Date</button>
@@ -464,22 +799,11 @@ function checkModal(){
    <div class="column">
    <form name="form3">
    <div id="date3" style="margin: 20px">
-     <div class="ui right labeled input">
+     <div class="ui input">
   <div class="ui calendar" id="example3">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d3" type="text" placeholder="Date/Time" style="width:150px">
-    <div class="ui dropdown label" id="dropdown3">
-        <div class="text" style="font-size:15px">Time Window</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">10:00-11:00</div>
-          <div class="item">11:00-12:00</div>
-          <div class="item">18:00-19:00</div>
-      <div class="item">19:00-20:00</div>
-      <div class="item">21:00-22:00</div>
-        </div>
-      </div>
   </div>
   &nbsp;&nbsp;
   <button id="add3" class="ui green small button">Add another Date</button>
@@ -493,22 +817,11 @@ function checkModal(){
    <div class="column">
    <form name="form4">
   <div id="date4" style="margin: 20px">
-     <div class="ui right labeled input">
+     <div class="ui input">
   <div class="ui calendar" id="example4">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d4" type="text" placeholder="Date/Time" style="width:150px">
-    <div class="ui dropdown label" id="dropdown4">
-        <div class="text" style="font-size:15px">Time Window</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">10:00-11:00</div>
-          <div class="item">11:00-12:00</div>
-          <div class="item">18:00-19:00</div>
-      <div class="item">19:00-20:00</div>
-      <div class="item">21:00-22:00</div>
-        </div>
-      </div>
   </div>
   &nbsp;&nbsp;
   <button id="add4" class="ui green small button">Add another Date</button>
@@ -522,22 +835,11 @@ function checkModal(){
    <div class="column">
    <form name="form5">
    <div id="date5" style="margin: 20px">
-    <div class="ui right labeled input"> 
+    <div class="ui input"> 
   <div class="ui calendar" id="example5">
   <div class="ui input left icon">
     <i class="calendar icon"></i>
     <input id="d5" type="text" placeholder="Date/Time" style="width:150px">
-    <div class="ui dropdown label" id="dropdown5">
-        <div class="text" style="font-size:15px">Time Window</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">10:00-11:00</div>
-          <div class="item">11:00-12:00</div>
-          <div class="item">18:00-19:00</div>
-      <div class="item">19:00-20:00</div>
-      <div class="item">21:00-22:00</div>
-        </div>
-      </div>
   </div>
   &nbsp;&nbsp;
   <button id="delete5" class="ui red small button">Delete Date</button>
@@ -680,13 +982,15 @@ function checkModal(){
 <div class="ui right floated small black button unhide icon"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>Salmon slice</li>
-          <li>Ground herbs</li>
-          <li>1 bunch of brocolli</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">Salmon slices</div>
+			  <div class="item">Ground Herbs</div>
+			  <div class="item">Olive Oil</div>
+			  <div class="item">A griller</div>
+			  <div class="item">A large bowl</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -739,16 +1043,15 @@ function checkModal(){
       <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>1 Chicken Thigh</li>
-          <li>Selection of Indian Spices</li>
-          <li>1 green pepper</li>
-          <li>1 lemongrass</li>
-		  <li>1 Pan</li>
-		  <li>1 Sieve</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">1 Chicken Thigh</div>
+			  <div class="item">Selection of Indian Spices</div>
+			  <div class="item">Olive Oil</div>
+			  <div class="item">A griller</div>
+			  <div class="item">A large bowl</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -800,13 +1103,15 @@ function checkModal(){
 <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>1 whole onion</li>
-          <li>A rack of 5 lamb ribs</li>
-          <li>A pinch of black pepper</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">Whole Onion</div>
+			  <div class="item">A rack of 5 lamb ribs</div>
+			  <div class="item">Olive Oil</div>
+			  <div class="item">A griller</div>
+			  <div class="item">A large bowl</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -903,14 +1208,15 @@ function checkModal(){
 <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>5 medium sized tomatoes</li>
-          <li>A clove of garlic</li>
-          <li>Raw black pepper</li>
-          <li>A pinch of rosemary</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">5 medium sized tomatoes</div>
+			  <div class="item">A clove of garlic</div>
+			  <div class="item">Raw black pepper</div>
+			  <div class="item">A pinch of rosemary</div>
+			  <div class="item">A griller</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -962,16 +1268,15 @@ function checkModal(){
 <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>1 Carrot</li>
-          <li>1 Spinach</li>
-          <li>1/2 Cabbage</li>
-          <li>1 Egg</li>
-          <li>Glutinous rice</li>
-          <li>100g of mushroom</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">1 Carrot</div>
+			  <div class="item">1 Spinach</div>
+			  <div class="item">1/2 Cabbage</div>
+			  <div class="item">Glutinous rice</div>
+			  <div class="item">A hand mixer</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -1023,14 +1328,15 @@ function checkModal(){
 <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>Whole Trout</li>
-          <li>Whole Lemon</li>
-          <li>35g Olive Oil</li>
-          <li>2 pinches of Salt</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">Whole Trout</div>
+			  <div class="item">Whole Lemon</div>
+			  <div class="item">Olive Oil</div>
+			  <div class="item">A microwave oven</div>
+			  <div class="item">A sieve</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -1127,14 +1433,15 @@ function checkModal(){
 <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>1 Avocado</li>
-          <li>5 medium sized tomatoes</li>
-          <li>2 limes</li>
-          <li>A bunch of corriander</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">1 Avacado</div>
+			  <div class="item">5 medium sized tomatoes</div>
+			  <div class="item">2 limes</div>
+			  <div class="item">A bunch of coriander leaves</div>
+			  <div class="item">A pan</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -1186,14 +1493,15 @@ function checkModal(){
   <div class="ui right floated black icon button"><i class="large white unhide icon"></i></div>
         <div class="ui fluid popup top left transition hidden">
           <div class="ui one column divided center aligned grid">
-            <div class="column">
-        <ul>
-          <li>3 Prawns</li>
-          <li>Lemongrass</li>
-          <li>Button mushroom</li>
-          <li>3 limes</li>
-        </ul>
-    </div>
+		  <div class="ui list" style="text-align:left; margin-left:-60px">
+				<br/>
+			  <div class="item">3 prawns</div>
+			  <div class="item">Lemongrass</div>
+			  <div class="item">Button mushroom</div>
+			  <div class="item">A microwave oven</div>
+			  <div class="item">A deep frying bowl</div>
+			  <br/>
+			</div>
   </div>
 </div>
 
@@ -1237,11 +1545,14 @@ function checkModal(){
     <div class="column">
     </div>
      <div class="column">
-        <a href ="all_plans.html" class="ui large button">Back</a>
+        <a href ="homepage.html" class="ui large button">Back</a>
         <!--<a href ="details.html" id = "dates" class="ui large blue button">Next</a>>-->
         <a onclick = "checkNumberMeals(); return false;" id = "dates" class="ui large blue button">Next</a>
+		<br/>
+		<br/>
      </div>
     </div>
+  </div>
   </div>
 
 <script>
@@ -1250,7 +1561,7 @@ function checkNumberMeals() {
    if ($counterCart1 == 1 && $counterPaxCart1 != 0)
     window.location.href = "details.html";
    else
-    window.alert("No meals selected / Number of Pax not selected for Date 1")
+    window.alert("Please select meals & no. of pax for all the dates before proceeding")
    }
   }
 </script>

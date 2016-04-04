@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <!-- Standard Meta -->
@@ -155,7 +154,8 @@
   <script>
   $(document)
     .ready(function() {
-
+		
+		checkUser();
       // fix menu when passed
       $('.masthead')
         .visibility({
@@ -184,6 +184,129 @@ $('.ui.modal')
 
     })
   ;
+  
+  function checkUser(){
+  try{
+	var loginStatus = JSON.parse(sessionStorage.setLogin).loggedIn;
+	var obj = JSON.parse(sessionStorage.user);
+	if(loginStatus) {
+		document.getElementById('loginSpace').innerHTML = '';
+
+			var h3 = document.createElement('h3');
+			h3.innerHTML = "Welcome "+ obj.name;
+			document.getElementById('loginSpace').appendChild(h3);
+			//var button = document.createElement('button');
+			//button.className = "ui button"
+			//button.innerHTML = "Log Out";
+			//document.getElementById('loginSpace').appendChild(button);
+			document.getElementById('followLogin').innerHTML = '';
+
+			var h2 = document.createElement('h2');
+			h2.innerHTML = "Welcome "+ obj.name;
+			document.getElementById('followLogin').appendChild(h2);
+		$("#signup").hide();
+		$("#signupfields").hide();
+		document.getElementById("fname").value = "Benjamin";
+		document.getElementById("lname").value = "Gan";
+		document.getElementById("street").value = "81 Victoria Street";
+		document.getElementById("apt").value = "04-05";
+		document.getElementById("cno").value = "XXXX XXXX XXXX 1001";
+		document.getElementById("cvv").value = "511";
+		document.getElementById("month").value = "4";
+		document.getElementById("year").value = "2019";
+		
+		var d1 = sessionStorage.pax1;
+		var d2 = sessionStorage.pax2;
+		var d3 = sessionStorage.pax3;
+		var d4 = sessionStorage.pax4;
+		var d5 = sessionStorage.pax5;
+		
+		var total = 0;
+		if(d2 == undefined) {
+			$("#m1").show();
+			$("#m2").hide();
+			$("#m3").hide();
+			$("#m4").hide();
+			$("#m5").hide();
+			document.getElementById("pax1").innerHTML = " for "+(JSON.parse(sessionStorage.pax1).pax)+" person(s)";
+			$("#pax2").hide();
+			$("#pax3").hide();
+			$("#pax4").hide();
+			$("#pax5").hide();
+			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax);
+		}
+		else if(d3 == undefined) {
+			$("#m1").show();
+			$("#m2").show();
+			$("#m3").hide();
+			$("#m4").hide();
+			$("#m5").hide();
+			document.getElementById("pax1").innerHTML = " for "+(JSON.parse(sessionStorage.pax1).pax)+" person(s)";
+			document.getElementById("pax2").innerHTML = " for "+(JSON.parse(sessionStorage.pax2).pax)+" person(s)";
+			$("#pax3").hide();
+			$("#pax4").hide();
+			$("#pax5").hide();
+			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax);
+		}
+		else if(d4 == undefined) {
+			$("#m1").show();
+			$("#m2").show();
+			$("#m3").show();
+			$("#m4").hide();
+			$("#m5").hide();
+			document.getElementById("pax1").innerHTML = " for "+(JSON.parse(sessionStorage.pax1).pax)+" person(s)";
+			document.getElementById("pax2").innerHTML = " for "+(JSON.parse(sessionStorage.pax2).pax)+" person(s)";
+			document.getElementById("pax3").innerHTML = " for "+(JSON.parse(sessionStorage.pax3).pax)+" person(s)";
+			$("#pax4").hide();
+			$("#pax5").hide();
+			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax3).pax);
+		}
+		else if(d5 == undefined) {
+			$("#m1").show();
+			$("#m2").show();
+			$("#m3").show();
+			$("#m4").show();
+			$("#m5").hide();
+			document.getElementById("pax1").innerHTML = " for "+(JSON.parse(sessionStorage.pax1).pax)+" person(s)";
+			document.getElementById("pax2").innerHTML = " for "+(JSON.parse(sessionStorage.pax2).pax)+" person(s)";
+			document.getElementById("pax3").innerHTML = " for "+(JSON.parse(sessionStorage.pax3).pax)+" person(s)";
+			document.getElementById("pax4").innerHTML = " for "+(JSON.parse(sessionStorage.pax4).pax)+" person(s)";
+			$("#pax5").hide();
+			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax3).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax4).pax);
+		}
+		else if(d5 != undefined) {
+			$("#m1").show();
+			$("#m2").show();
+			$("#m3").show();
+			$("#m4").show();
+			$("#m5").show();
+			document.getElementById("pax1").innerHTML = " for "+(JSON.parse(sessionStorage.pax1).pax)+" person(s)";
+			document.getElementById("pax2").innerHTML = " for "+(JSON.parse(sessionStorage.pax2).pax)+" person(s)";
+			document.getElementById("pax3").innerHTML = " for "+(JSON.parse(sessionStorage.pax3).pax)+" person(s)";
+			document.getElementById("pax4").innerHTML = " for "+(JSON.parse(sessionStorage.pax4).pax)+" person(s)";
+			document.getElementById("pax4").innerHTML = " for "+(JSON.parse(sessionStorage.pax5).pax)+" person(s)";
+			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax3).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax4).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax5).pax);
+		}
+		
+		
+		
+		if(sessionStorage.pax1 != undefined)
+		{
+			document.getElementById("dis").innerHTML = (String)total;
+			document.getElementById("pax1").innerHTML = "0";
+		}
+		else {
+			document.getElementById("pax1").innerHTML = (String)total;
+		}
+	}
+  }catch(err){
+  console.log("dc");
+  }
+  }
+  
+  function submit(){
+  
+  }
   </script>
   
 </head>
@@ -193,11 +316,10 @@ $('.ui.modal')
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
     <a href = "homepage.html" class="item">Home</a>
-    <a class="active item" href = "all_plans.html">Plans</a>
         <a href = "weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
      
-    <div class="right menu">
+    <div id = "followLogin" class="right menu">
       <div class="item">
         <a class="ui button">Log in</a>
       </div>
@@ -211,7 +333,6 @@ $('.ui.modal')
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
   <a chref = "homepage.html" lass="item">Home</a>
-  <a class="active item" href = "all_plans.html">Plans</a>
         <a href = "weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
         
@@ -230,13 +351,12 @@ $('.ui.modal')
           <i class="sidebar icon"></i>
         </a>
         <a href ="homepage.html" class="item">Home</a>
-        <a href = "all_plans.html" class="active item" href = "all_plans.html">Plans</a>
         <a href ="weekly_menu.html" class="item">Weekly Menu</a>
         <a href = "featured_chefs.html" class="item">Featured Chefs</a>
     
-        <div class="right item">
-          <a href ="login.html" class="ui button">Log in</a>
-          <a class="ui button">Sign Up</a>
+                <div id = "loginSpace" class="right item">
+          <a id = "login" href ="login.html" class="ui button">Log in</a>
+          <a id = "signup" class="ui button">Sign Up</a>
         </div>
       </div>
     </div>
@@ -277,91 +397,58 @@ $('.ui.modal')
 	<div class="ui segments">
 	  <div class="ui segment">	
 	<form class="ui form">
-  <h4 class="ui dividing header">User Information</h4>
+  <h4 class="ui dividing header" style="color:grey; font-size:20px">User Information</h4>
   <div class="field">
     <label>Name</label>
     <div class="two fields">
       <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="First Name">
+        <input id="fname" type="text" name="shipping[first-name]" placeholder="First Name">
       </div>
       <div class="field">
-        <input type="text" name="shipping[last-name]" placeholder="Last Name">
+        <input id="lname" type="text" name="shipping[last-name]" placeholder="Last Name">
       </div>
     </div>
   </div>
 
-  <h4 class="ui dividing header">Login Details</h4>
-  <div class="fields">
+  <h4 id="signup" class="ui dividing header" style="color:grey; font-size:20px">Sign Up Details</h4>
+  <div class="fields" id="signupfields">
     <div class="field">
       <label>Username</label>
-      <input type="text" name="card[number]" maxlength="20" placeholder="Username" size="50">
+      <input id="username" type="text" name="card[number]" maxlength="30" placeholder="Username" size="50">
     </div>
 	<div class="field">
       <label>Pasword</label>
-      <input type="text" name="card[number]" maxlength="20" placeholder="xxxxxx" size="50">
+      <input id="pwd" type="text" name="card[number]" maxlength="30" placeholder="xxxxxx" size="50">
     </div>
   </div>
   
 
-  <h4 class="ui dividing header">Billing Information</h4>
+  <h4 class="ui dividing header" style="color:grey; font-size:20px">Delivery Information</h4>
   <div class="field">
-    <label>Billing Address</label>
+    <label>Delivery Address</label>
     <div class="fields">
       <div class="twelve wide field">
-        <input type="text" name="shipping[address]" placeholder="Street Address">
+        <input id="street" type="text" name="shipping[address]" placeholder="Street Address">
       </div>
       <div class="four wide field">
-        <input type="text" name="shipping[address-2]" placeholder="Apt #">
+        <input id="apt" type="text" name="shipping[address-2]" placeholder="Apt #">
       </div>
     </div>
-  </div>
-  <div class="two fields">
-    <div class="field">
-      <label>Country</label>
-      <select class="ui fluid dropdown">
-        <option value="">Select Country</option>
-    <option value="SIN"><i class="sg flag"></i>Singapore</option>
-
-      </select>
-    </div>
-    <div class="field">
-      <label>Region</label>
-	  <select class="ui fluid dropdown">
-        <option value="">Select Region</option>
-    <option value="SIN">Central Region</option>
-	<option value="SIN">East Region</option>
-	<option value="SIN">North Region</option>
-	<option value="SIN">North-east Region</option>
-	<option value="SIN">West Region</option>
-
-      </select>
-	  
-    </div>
-  </div>
-  <div class="field">
-    <label>Card Type</label>
-	<select class="ui fluid dropdown">
-        <option value="">Card Type</option>
-    <option><i class="visa icon"></i>VISA</option>
-	<option><i class="amex icon"></i>American Express</option>
-	<option><i class="discover icon"></i>Discover</option>
-      </select> 
- 
   </div>
   <div class="fields">
     <div class="seven wide field">
       <label>Card Number</label>
-      <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
+      <input id="cno" type="text" name="card[number]" maxlength="16" placeholder="Card #">
     </div>
     <div class="three wide field">
       <label>CVC</label>
-      <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
+      <input id="cvv" type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
     </div>
     <div class="six wide field">
       <label>Expiration</label>
       <div class="two fields">
         <div class="field">
-          <select class="ui fluid search dropdown" name="card[expire-month]">
+          <select id="month" class="ui fluid search dropdown" name="card[expire-month]">
             <option value="">Month</option>
             <option value="1">January</option>
             <option value="2">February</option>
@@ -378,17 +465,25 @@ $('.ui.modal')
           </select>
         </div>
         <div class="field">
-          <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+          <input id="year" type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
         </div>
   </div>
   <h3 class="ui dividing header">Order Details</h3>
-		<p style="margin-right:80px; display:inline;font-size:20px">2 Meals @ $24</p>
-		<p style="margin-right:0px; display:inline;font-size:20px">$24</p>
-		<p style="margin-right:130px; display:inline;font-size:20px">Additional</p>
-		<p style="margin-right:0px; display:inline;font-size:20px">$0</p>
+		<p id="m1" style="margin-right:80px; display:inline;font-size:20px">Meal1 @ $24</p>
+		<p id="pax1" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
+		<p id="m2" style="margin-right:80px; display:inline;font-size:20px">Meal2 @ $24</p>
+		<p id="pax2" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
+		<p id="m3" style="margin-right:80px; display:inline;font-size:20px">Meal3 @ $24</p>
+		<p id="pax3" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
+		<p id="m4" style="margin-right:80px; display:inline;font-size:20px">Meal4 @ $24</p>
+		<p id="pax4" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
+		<p id="m5" style="margin-right:80px; display:inline;font-size:20px">Meal5 @ $24</p>
+		<p id="pax5" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
+		<p style="margin-right:130px; display:inline;font-size:20px">Discount</p>
+		<p id="dis" style="margin-right:0px; display:inline;font-size:20px">$0</p>
 		<h3 class="ui dividing header"></h3>
 		<p style="margin-right:170px; display:inline;font-size:20px">Total</p>
-		<p style="margin-right:0px; display:inline;font-size:20px">$24</p>
+		<p id="total" style="margin-right:0px; display:inline;font-size:20px">$24</p>
 	
 </form>
 </div>
@@ -405,7 +500,7 @@ $('.ui.modal')
     </div>
      <div class="column">
         <a href ="choose_meals.html" class="ui huge button">Back</a>
-        <a href ="#" id = "dates" class="ui huge green button">Submit</a>
+        <a onclick="submit()" id = "sub" class="ui huge green button">Submit</a>
 		<div class="ui modal">
 			<i class="close icon"></i>
   <div class="header">
@@ -413,7 +508,9 @@ $('.ui.modal')
   <p style="display:inline; font-size:40px">Thank you for your order!</p><br/>
   You can make changes to your order until 24 hours in advance of the delivery date
   </div>
-  
+		<div class="actions">
+  <a href="homepage.html" class="ui large blue button">Close</a>
+  </div>
 			</div>
      </div>
     </div>
