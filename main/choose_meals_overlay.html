@@ -158,15 +158,15 @@ function checkModal(){
       .modal('hide')
       ;
   var ed = JSON.parse(sessionStorage.edit).edit;
-  if(ed == false ){
+
+  if(ed == false){
 	$("#msg").hide();
     $("#modal1")
       .modal('setting', 'closable', false)
       .modal('show')
       ;
   }
-  else if(ed == true && sessionStorage.date1 == undefined ){
-	$("#msg").show();
+  else if(ed == true && sessionStorage.date1 == undefined){
 	$("#msg").show();
   }
   else if(ed == true){
@@ -527,7 +527,6 @@ function checkUser(){
 				
 				var edit = {'edit':true};
 				sessionStorage.setItem('edit', JSON.stringify(edit));
-				var obj2 = JSON.parse(sessionStorage.edit);
 				
 				window.location.reload();
 				
@@ -1572,11 +1571,16 @@ function checkNumberMeals() {
     }
   }
     //var pax = {'pax1': $counterPaxCart1, 'pax2': $counterPaxCart2, 'pax3': $counterPaxCart3, 'pax4':$counterPaxCart1, 'pax5':$counterPaxCart5}
-    sessionStorage.setItem('pax1', $counterPaxCart1)
-    sessionStorage.setItem('pax2', $counterPaxCart2)
-    sessionStorage.setItem('pax3', $counterPaxCart3)
-    sessionStorage.setItem('pax4', $counterPaxCart4)
-    sessionStorage.setItem('pax5', $counterPaxCart5)
+	var pax1 = {'pax': $counterPaxCart1}
+	var pax2 = {'pax': $counterPaxCart2}
+	var pax3 = {'pax': $counterPaxCart3}
+	var pax4 = {'pax': $counterPaxCart4}
+	var pax5 = {'pax': $counterPaxCart5}
+    sessionStorage.setItem('pax1', JSON.stringify(pax1))
+    sessionStorage.setItem('pax2', JSON.stringify(pax2))
+    sessionStorage.setItem('pax3', JSON.stringify(pax3))
+    sessionStorage.setItem('pax4', JSON.stringify(pax4))
+    sessionStorage.setItem('pax5', JSON.stringify(pax5))
     window.location.href = "details.html";
 }
 </script>
@@ -1623,6 +1627,30 @@ function checkNumberMeals() {
 <script src="../dist/components/dropdown.js"></script>
 
 <script type="text/javascript">
+$cart1Date = sessionStorage.date1
+$cart2Date = sessionStorage.date2
+$cart3Date = sessionStorage.date3
+$cart4Date = sessionStorage.date4
+$cart5Date = sessionStorage.date5
+
+if($cart1Date != undefined){
+  $("#cart1list").append(sessionStorage.cart1list);
+}
+if($cart2Date != undefined){
+  $("#cart2list").append(sessionStorage.cart2list);
+}
+if($cart3Date != undefined){
+  $("#cart3list").append(sessionStorage.cart3list);
+}
+if($cart4Date != undefined){
+  $("#cart4list").append(sessionStorage.cart4list);
+}
+if($cart5Date != undefined){
+  $("#cart5list").append(sessionStorage.cart5list);
+}
+</script>
+
+<script type="text/javascript">
 $(document)
   .ready(function() {
     $('.small.blue.button')
@@ -1656,6 +1684,7 @@ function addToCart1(dishName) {
           $counterCart1 -= 1;
           window.alert("1 Meal per Date");
         }else{
+          sessionStorage.cart1list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>"
           $("#cart1list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>");
         }
 }
@@ -1666,6 +1695,7 @@ function addToCart2(dishName) {
           $counterCart2 -= 1;
           window.alert("1 Meal per Date");
         }else{
+          sessionStorage.cart2list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>"
           $("#cart2list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>");
         }
 }
@@ -1676,6 +1706,7 @@ function addToCart3(dishName) {
           $counterCart3 -= 1;
           window.alert("1 Meal per Date");
         }else{
+          sessionStorage.cart3list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>"
           $("#cart3list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>");
         }
 }
@@ -1686,6 +1717,7 @@ function addToCart4(dishName) {
           $counterCart4 -= 1;
           window.alert("1 Meal per Date");
         }else{
+          sessionStorage.cart4list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>"
           $("#cart4list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>");
         }
 }
@@ -1696,6 +1728,7 @@ function addToCart5(dishName) {
           $counterCart5 -= 1;
           window.alert("1 Meal per Date");
         }else{
+          sessionStorage.cart5list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>"
           $("#cart5list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>");
         }
 }

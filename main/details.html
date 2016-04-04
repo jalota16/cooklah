@@ -186,9 +186,9 @@ $('.ui.modal')
   
   function checkUser(){
   try{
-	var loginStatus = JSON.parse(sessionStorage.setLogin).loggedIn;
+	var loginStatus = sessionStorage.setLogin;
 	var obj = JSON.parse(sessionStorage.user);
-	if(loginStatus) {
+	if(loginStatus != undefined) {
 		document.getElementById('loginSpace').innerHTML = '';
 
 			var h3 = document.createElement('h3');
@@ -213,15 +213,18 @@ $('.ui.modal')
 		document.getElementById("cvv").value = "511";
 		document.getElementById("month").value = "4";
 		document.getElementById("year").value = "2019";
-		
+	}
+		console.log("tgbtb");
 		var d1 = sessionStorage.pax1;
 		var d2 = sessionStorage.pax2;
 		var d3 = sessionStorage.pax3;
 		var d4 = sessionStorage.pax4;
 		var d5 = sessionStorage.pax5;
+		var price = 9
+		console.log(price * parseInt(JSON.parse(d1).pax));
 		
 		var total = 0;
-		if(d2 == undefined) {
+		if(JSON.parse(d2).pax == 0) {
 			$("#m1").show();
 			$("#m2").hide();
 			$("#m3").hide();
@@ -232,9 +235,9 @@ $('.ui.modal')
 			$("#pax3").hide();
 			$("#pax4").hide();
 			$("#pax5").hide();
-			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax);
+			total = price * parseInt(JSON.parse(d1).pax);
 		}
-		else if(d3 == undefined) {
+		else if(JSON.parse(d3).pax == 0) {
 			$("#m1").show();
 			$("#m2").show();
 			$("#m3").hide();
@@ -245,9 +248,9 @@ $('.ui.modal')
 			$("#pax3").hide();
 			$("#pax4").hide();
 			$("#pax5").hide();
-			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax);
+			total = price * (parseInt(JSON.parse(d1).pax) + parseInt(JSON.parse(d2).pax));
 		}
-		else if(d4 == undefined) {
+		else if(JSON.parse(d4).pax == 0) {
 			$("#m1").show();
 			$("#m2").show();
 			$("#m3").show();
@@ -258,9 +261,9 @@ $('.ui.modal')
 			document.getElementById("pax3").innerHTML = " for "+(JSON.parse(sessionStorage.pax3).pax)+" person(s)";
 			$("#pax4").hide();
 			$("#pax5").hide();
-			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax3).pax);
+			total = price * (parseInt(JSON.parse(d1).pax) + parseInt(JSON.parse(d2).pax) + parseInt(JSON.parse(d3).pax));
 		}
-		else if(d5 == undefined) {
+		else if(JSON.parse(d5).pax == 0) {
 			$("#m1").show();
 			$("#m2").show();
 			$("#m3").show();
@@ -271,9 +274,9 @@ $('.ui.modal')
 			document.getElementById("pax3").innerHTML = " for "+(JSON.parse(sessionStorage.pax3).pax)+" person(s)";
 			document.getElementById("pax4").innerHTML = " for "+(JSON.parse(sessionStorage.pax4).pax)+" person(s)";
 			$("#pax5").hide();
-			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax3).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax4).pax);
+			price * (parseInt(JSON.parse(d1).pax) + parseInt(JSON.parse(d2).pax) + parseInt(JSON.parse(d3).pax) + parseInt(JSON.parse(d4).pax));
 		}
-		else if(d5 != undefined) {
+		else if(JSON.parse(d5).pax != 0) {
 			$("#m1").show();
 			$("#m2").show();
 			$("#m3").show();
@@ -284,20 +287,10 @@ $('.ui.modal')
 			document.getElementById("pax3").innerHTML = " for "+(JSON.parse(sessionStorage.pax3).pax)+" person(s)";
 			document.getElementById("pax4").innerHTML = " for "+(JSON.parse(sessionStorage.pax4).pax)+" person(s)";
 			document.getElementById("pax4").innerHTML = " for "+(JSON.parse(sessionStorage.pax5).pax)+" person(s)";
-			total = 24*Inter.parseInt(JSON.parse(sessionStorage.pax1).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax2).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax3).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax4).pax)+24*Inter.parseInt(JSON.parse(sessionStorage.pax5).pax);
+			price * (parseInt(JSON.parse(d1).pax) + parseInt(JSON.parse(d2).pax) + parseInt(JSON.parse(d3).pax) + parseInt(JSON.parse(d4).pax) + parseInt(JSON.parse(d5).pax));
 		}
-		
-		
-		
-		if(sessionStorage.pax1 != undefined)
-		{
-			document.getElementById("dis").innerHTML = (String)total;
-			document.getElementById("pax1").innerHTML = "0";
-		}
-		else {
-			document.getElementById("pax1").innerHTML = (String)total;
-		}
-	}
+		document.getElementById("total").innerHTML = '';
+		document.getElementById("total").innerHTML = total.toString();
   }catch(err){
   console.log("dc");
   }
@@ -468,21 +461,21 @@ $('.ui.modal')
         </div>
   </div>
   <h3 class="ui dividing header">Order Details</h3>
-		<p id="m1" style="margin-right:80px; display:inline;font-size:20px">Meal1 @ $24</p>
+		<p id="m1" style="margin-right:80px; display:inline;font-size:20px">Meal1 @ $9</p>
 		<p id="pax1" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
-		<p id="m2" style="margin-right:80px; display:inline;font-size:20px">Meal2 @ $24</p>
+		<p id="m2" style="margin-right:80px; display:inline;font-size:20px">Meal2 @ $9</p>
 		<p id="pax2" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
-		<p id="m3" style="margin-right:80px; display:inline;font-size:20px">Meal3 @ $24</p>
+		<p id="m3" style="margin-right:80px; display:inline;font-size:20px">Meal3 @ $9</p>
 		<p id="pax3" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
-		<p id="m4" style="margin-right:80px; display:inline;font-size:20px">Meal4 @ $24</p>
+		<p id="m4" style="margin-right:80px; display:inline;font-size:20px">Meal4 @ $9</p>
 		<p id="pax4" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
-		<p id="m5" style="margin-right:80px; display:inline;font-size:20px">Meal5 @ $24</p>
+		<p id="m5" style="margin-right:80px; display:inline;font-size:20px">Meal5 @ $9</p>
 		<p id="pax5" style="margin-right:0px; display:inline;font-size:20px"> for 1 person</p><br/>
 		<p style="margin-right:130px; display:inline;font-size:20px">Discount</p>
 		<p id="dis" style="margin-right:0px; display:inline;font-size:20px">$0</p>
 		<h3 class="ui dividing header"></h3>
 		<p style="margin-right:170px; display:inline;font-size:20px">Total</p>
-		<p id="total" style="margin-right:0px; display:inline;font-size:20px">$24</p>
+		<p id="total" style="margin-right:0px; display:inline;font-size:20px">$9</p>
 	
 </form>
 </div>
@@ -505,7 +498,7 @@ $('.ui.modal')
   <div class="header">
 	<i class="check circle outline huge icon" style="display:inline"></i>
   <p style="display:inline; font-size:40px">Thank you for your order!</p><br/>
-  You can make changes to your order until 24 hours in advance of the delivery date
+  You can make changes to your order until 9 hours in advance of the delivery date
   </div>
 		<div class="actions">
   <a href="homepage.html" class="ui large blue button">Close</a>

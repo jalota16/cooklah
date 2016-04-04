@@ -279,6 +279,8 @@
 		var edit = {'edit':false};
 		sessionStorage.setItem('edit', JSON.stringify(edit));
 		var obj2 = JSON.parse(sessionStorage.edit);
+		var start = {'start':false};
+		sessionStorage.setItem('start', JSON.stringify(start));
 		document.location.href = "choose_meals_overlay.html";
 		delete sessionStorage.date1;
 		delete sessionStorage.date2;
