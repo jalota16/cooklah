@@ -1561,14 +1561,22 @@ function checkNumberMeals() {
   if ($cart4Date != undefined){
     if ($counterCart4 != 1 || $counterPaxCart4 == 0){
       window.alert("Please select meals & no. of pax for cart 4 before proceeding")
+      return
     }
   }
-  
+
   if ($cart5Date != undefined){
     if ($counterCart5 != 1 || $counterPaxCart5 == 0){
       window.alert("Please select meals & no. of pax for cart 5 before proceeding")
+      return
     }
   }
+    //var pax = {'pax1': $counterPaxCart1, 'pax2': $counterPaxCart2, 'pax3': $counterPaxCart3, 'pax4':$counterPaxCart1, 'pax5':$counterPaxCart5}
+    sessionStorage.setItem('pax1', $counterPaxCart1)
+    sessionStorage.setItem('pax2', $counterPaxCart2)
+    sessionStorage.setItem('pax3', $counterPaxCart3)
+    sessionStorage.setItem('pax4', $counterPaxCart4)
+    sessionStorage.setItem('pax5', $counterPaxCart5)
     window.location.href = "details.html";
 }
 </script>
