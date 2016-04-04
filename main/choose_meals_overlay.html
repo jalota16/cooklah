@@ -1537,35 +1537,35 @@ function checkUser(){
 <script>
 function checkNumberMeals() {
   if($cart1Date != undefined){
-   if ($counterCart1 != 1 || $counterPaxCart1 == 0){
+   if (sessionStorage.counterCart1 != 1 || sessionStorage.counterPaxCart1 == 0){
     window.alert("Please select meals & no. of pax for cart 1 before proceeding")
     return
    }
   }
 
   if ($cart2Date != undefined){
-    if ($counterCart2 != 1 || $counterPaxCart2 == 0){
+    if (sessionStorage.counterCart2 != 1 || sessionStorage.counterPaxCart2 == 0){
       window.alert("Please select meals & no. of pax for cart 2 before proceeding")
       return
     }
   }
 
   if ($cart3Date != undefined){
-    if ($counterCart3 != 1 || $counterPaxCart3 == 0){
+    if (sessionStorage.counterCart3 != 1 || sessionStorage.counterPaxCart3 == 0){
       window.alert("Please select meals & no. of pax for cart 3 before proceeding")
       return
     }
   }
 
   if ($cart4Date != undefined){
-    if ($counterCart4 != 1 || $counterPaxCart4 == 0){
+    if (sessionStorage.counterCart4 != 1 || sessionStorage.counterPaxCart4 == 0){
       window.alert("Please select meals & no. of pax for cart 4 before proceeding")
       return
     }
   }
 
   if ($cart5Date != undefined){
-    if ($counterCart5 != 1 || $counterPaxCart5 == 0){
+    if (sessionStorage.counterCart5 != 1 || sessionStorage.counterPaxCart5 == 0){
       window.alert("Please select meals & no. of pax for cart 5 before proceeding")
       return
     }
@@ -1656,8 +1656,10 @@ var $counterCart4 = 0
 var $counterCart5 = 0
 function addToCart1(dishName) {
     $counterCart1 += 1
+    sessionStorage.counterCart1 = $counterCart1
         if($counterCart1 > 1){
           $counterCart1 -= 1;
+          sessionStorage.counterCart1 = $counterCart1
           window.alert("1 Meal per Date");
         }else{
           sessionStorage.cart1list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>"
@@ -1667,8 +1669,10 @@ function addToCart1(dishName) {
 
 function addToCart2(dishName) {
     $counterCart2 += 1
+    sessionStorage.counterCart2 = $counterCart2
         if($counterCart2 > 1){
           $counterCart2 -= 1;
+          sessionStorage.counterCart2 = $counterCart2
           window.alert("1 Meal per Date");
         }else{
           sessionStorage.cart2list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>"
@@ -1678,8 +1682,10 @@ function addToCart2(dishName) {
 
 function addToCart3(dishName) {
     $counterCart3 += 1
+    sessionStorage.counterCart3 = $counterCart3
         if($counterCart3 > 1){
           $counterCart3 -= 1;
+          sessionStorage.counterCart3 = $counterCart3
           window.alert("1 Meal per Date");
         }else{
           sessionStorage.cart3list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>"
@@ -1689,8 +1695,10 @@ function addToCart3(dishName) {
 
 function addToCart4(dishName) {
     $counterCart4 += 1
+    sessionStorage.counterCart4 = $counterCart4
         if($counterCart4 > 1){
           $counterCart4 -= 1;
+          sessionStorage.counterCart4 = $counterCart4
           window.alert("1 Meal per Date");
         }else{
           sessionStorage.cart4list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>"
@@ -1700,8 +1708,10 @@ function addToCart4(dishName) {
 
 function addToCart5(dishName) {
     $counterCart5 += 1
+    sessionStorage.counterCart5 = $counterCart5
         if($counterCart5 > 1){
           $counterCart5 -= 1;
+          sessionStorage.counterCart5 = $counterCart5
           window.alert("1 Meal per Date");
         }else{
           sessionStorage.cart5list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>"
@@ -1712,26 +1722,31 @@ function addToCart5(dishName) {
 function removeDishCart1(){
   $('#cart1list').empty();
   $counterCart1 -= 1;
+  sessionStorage.counterCart1 = $counterCart1
 }
 
 function removeDishCart2(){
   $('#cart2list').empty();
   $counterCart2 -= 1;
+  sessionStorage.counterCart2 = $counterCart2
 }
 
 function removeDishCart3(){
   $('#cart3list').empty();
   $counterCart3 -= 1;
+  sessionStorage.counterCart3 = $counterCart3
 }
 
 function removeDishCart4(){
   $('#cart4list').empty();
   $counterCart4 -= 1;
+  sessionStorage.counterCart4 = $counterCart4
 }
 
 function removeDishCart5(){
   $('#cart5list').empty();
   $counterCart5 -= 1;
+  sessionStorage.counterCart5 = $counterCart5
 }
 
 var $counterPaxCart1 = 0
@@ -1885,7 +1900,7 @@ $cart2Date = sessionStorage.date2
 $cart3Date = sessionStorage.date3
 $cart4Date = sessionStorage.date4
 $cart5Date = sessionStorage.date5
-console.log(document.getElementById('cart2dropdown'))
+
 if($cart1Date != undefined){
   $("#cart1list").append(sessionStorage.cart1list);
   $("#cart1dropdown").append("<input type='hidden' value='" + sessionStorage.counterPaxCart1 + "'>")
