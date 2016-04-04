@@ -1535,6 +1535,43 @@ function checkUser(){
 </div>
 </div>
 
+<script>
+function checkNumberMeals() {
+  if($cart1Date != undefined){
+   if ($counterCart1 != 1 || $counterPaxCart1 == 0){
+    window.alert("Please select meals & no. of pax for cart 1 before proceeding")
+    return
+   }
+  }
+
+  if ($cart2Date != undefined){
+    if ($counterCart2 != 1 || $counterPaxCart2 == 0){
+      window.alert("Please select meals & no. of pax for cart 2 before proceeding")
+      return
+    }
+  }
+
+  if ($cart3Date != undefined){
+    if ($counterCart3 != 1 || $counterPaxCart3 == 0){
+      window.alert("Please select meals & no. of pax for cart 3 before proceeding")
+      return
+    }
+  }
+
+  if ($cart4Date != undefined){
+    if ($counterCart4 != 1 || $counterPaxCart4 == 0){
+      window.alert("Please select meals & no. of pax for cart 4 before proceeding")
+    }
+  }
+  
+  if ($cart5Date != undefined){
+    if ($counterCart5 != 1 || $counterPaxCart5 == 0){
+      window.alert("Please select meals & no. of pax for cart 5 before proceeding")
+    }
+  }
+    window.location.href = "details.html";
+}
+</script>
 
 <div class = "ui container">
   <div class="ui four column grid">
@@ -1554,17 +1591,6 @@ function checkUser(){
     </div>
   </div>
   </div>
-
-<script>
-function checkNumberMeals() {
-  if($cart1Date != undefined){
-   if ($counterCart1 == 1 && $counterPaxCart1 != 0)
-    window.location.href = "details.html";
-   else
-    window.alert("Please select meals & no. of pax for all the dates before proceeding")
-   }
-  }
-</script>
 
 <!-- Content JS HERE !-->
 <style>
