@@ -334,7 +334,8 @@ function checkUser(){
 			
 		}
 		else if(ed3 == undefined)
-		{
+		{	
+			document.getElementById("ed1").value = JSON.parse(ed1).date
 			document.getElementById("ed2").value = JSON.parse(ed2).date
 			$("#editdate1").show();
 			$("#editdate2").show();
@@ -346,7 +347,9 @@ function checkUser(){
 
 		}
 		else if(ed4 == undefined)
-		{
+		{	
+			document.getElementById("ed1").value = JSON.parse(ed1).date
+			document.getElementById("ed2").value = JSON.parse(ed2).date
 			document.getElementById("ed3").value = JSON.parse(ed3).date
 			$("#editdate1").show();
 			$("#editdate2").show();
@@ -357,7 +360,10 @@ function checkUser(){
 			$("#errorMsg3").hide();
 		}
 		else if(ed5 == undefined)
-		{
+		{	
+			document.getElementById("ed1").value = JSON.parse(ed1).date
+			document.getElementById("ed2").value = JSON.parse(ed2).date
+			document.getElementById("ed3").value = JSON.parse(ed3).date
 			document.getElementById("ed4").value = JSON.parse(ed4).date
 			$("#editdate1").show();
 			$("#editdate2").show();
