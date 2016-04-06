@@ -1682,7 +1682,7 @@ var $counterCart5 = 0
 function addToCart1(dishName) {
     $counterCart1 += 1
     sessionStorage.counterCart1 = $counterCart1
-        if($counterCart1 > 1){
+        if(sessionStorage.counterCart1 == 1){
           $counterCart1 -= 1;
           sessionStorage.counterCart1 = $counterCart1
           window.alert("1 Meal per Date");
@@ -1695,7 +1695,7 @@ function addToCart1(dishName) {
 function addToCart2(dishName) {
     $counterCart2 += 1
     sessionStorage.counterCart2 = $counterCart2
-        if($counterCart2 > 1){
+        if(sessionStorage.counterCart2 == 1){
           $counterCart2 -= 1;
           sessionStorage.counterCart2 = $counterCart2
           window.alert("1 Meal per Date");
@@ -1708,7 +1708,7 @@ function addToCart2(dishName) {
 function addToCart3(dishName) {
     $counterCart3 += 1
     sessionStorage.counterCart3 = $counterCart3
-        if($counterCart3 > 1){
+        if(sessionStorage.counterCart3 == 1){
           $counterCart3 -= 1;
           sessionStorage.counterCart3 = $counterCart3
           window.alert("1 Meal per Date");
@@ -1721,7 +1721,7 @@ function addToCart3(dishName) {
 function addToCart4(dishName) {
     $counterCart4 += 1
     sessionStorage.counterCart4 = $counterCart4
-        if($counterCart4 > 1){
+        if(sessionStorage.counterCart4 == 1){
           $counterCart4 -= 1;
           sessionStorage.counterCart4 = $counterCart4
           window.alert("1 Meal per Date");
@@ -1734,7 +1734,7 @@ function addToCart4(dishName) {
 function addToCart5(dishName) {
     $counterCart5 += 1
     sessionStorage.counterCart5 = $counterCart5
-        if($counterCart5 > 1){
+        if(sessionStorage.counterCart5 == 1){
           $counterCart5 -= 1;
           sessionStorage.counterCart5 = $counterCart5
           window.alert("1 Meal per Date");
