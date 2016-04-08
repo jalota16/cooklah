@@ -1542,36 +1542,37 @@ function checkUser(){
 
 <script>
 function checkNumberMeals() {
-  if($cart1Date != undefined){
-   if (sessionStorage.counterCart1 != 1 || sessionStorage.counterPaxCart1 == 0){
+  if(sessionStorage.date1 != undefined){
+   if (sessionStorage.counterCart1 < 1 || sessionStorage.counterPaxCart1 == undefined || sessionStorage.counterCart1 == undefined){
+    console.log(sessionStorage.counterCart1)
     window.alert("Please select meals & no. of pax for cart 1 before proceeding")
     return
    }
   }
 
-  if ($cart2Date != undefined){
-    if (sessionStorage.counterCart2 != 1 || sessionStorage.counterPaxCart2 == 0){
+  if (sessionStorage.date2 != undefined){
+    if (sessionStorage.counterCart2 < 1 || sessionStorage.counterPaxCart2 == undefined || sessionStorage.counterCart2 == undefined){
       window.alert("Please select meals & no. of pax for cart 2 before proceeding")
       return
     }
   }
 
-  if ($cart3Date != undefined){
-    if (sessionStorage.counterCart3 != 1 || sessionStorage.counterPaxCart3 == 0){
+  if (sessionStorage.date3 != undefined){
+    if (sessionStorage.counterCart3 < 1 || sessionStorage.counterPaxCart3 == undefined || sessionStorage.counterCart3 == undefined){
       window.alert("Please select meals & no. of pax for cart 3 before proceeding")
       return
     }
   }
 
-  if ($cart4Date != undefined){
-    if (sessionStorage.counterCart4 != 1 || sessionStorage.counterPaxCart4 == 0){
+  if (sessionStorage.date4 != undefined){
+    if (sessionStorage.counterCart4 < 1 || sessionStorage.counterPaxCart4 == undefined || sessionStorage.counterCart4 == undefined){
       window.alert("Please select meals & no. of pax for cart 4 before proceeding")
       return
     }
   }
 
-  if ($cart5Date != undefined){
-    if (sessionStorage.counterCart5 != 1 || sessionStorage.counterPaxCart5 == 0){
+  if (sessionStorage.date5 != undefined){
+    if (sessionStorage.counterCart5 < 1 || sessionStorage.counterPaxCart5 == undefined || sessionStorage.counterCart5 == undefined){
       window.alert("Please select meals & no. of pax for cart 5 before proceeding")
       return
     }
@@ -1680,104 +1681,122 @@ $(document)
 </script>
 
 <script>
-var $counterCart1 = 0
-var $counterCart2 = 0
-var $counterCart3 = 0
-var $counterCart4 = 0
-var $counterCart5 = 0
+var $counterCart1 = 1
+var $counterCart2 = 1
+var $counterCart3 = 1
+var $counterCart4 = 1
+var $counterCart5 = 1
+
+
 function addToCart1(dishName) {
-    $counterCart1 += 1
-    sessionStorage.counterCart1 = $counterCart1
-        if(sessionStorage.counterCart1 == 1){
-          $counterCart1 -= 1;
-          sessionStorage.counterCart1 = $counterCart1
-          window.alert("1 Meal per Date");
-        }else{
-          sessionStorage.cart1list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>"
-          $("#cart1list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>");
-        }
+    $counterCart1 = 1
+    if(sessionStorage.counterCart1 == undefined){
+      sessionStorage.counterCart1 = 1;
+    }else{
+      sessionStorage.counterCart1 = 2;
+    }
+    console.log(sessionStorage.counterCart1)
+    if(sessionStorage.counterCart1 > 1){
+      sessionStorage.counterCart1 = 1;
+      window.alert("1 Meal per Date");
+    }else{
+      sessionStorage.cart1list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>"
+      $("#cart1list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart1()></i></p>");
+    }
 }
 
 function addToCart2(dishName) {
-    $counterCart2 += 1
-    sessionStorage.counterCart2 = $counterCart2
-        if(sessionStorage.counterCart2 == 1){
-          $counterCart2 -= 1;
-          sessionStorage.counterCart2 = $counterCart2
-          window.alert("1 Meal per Date");
-        }else{
-          sessionStorage.cart2list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>"
-          $("#cart2list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>");
-        }
+    $counterCart2 = 1
+    if(sessionStorage.counterCart2 == undefined){
+      sessionStorage.counterCart2 = 1;
+    }else{
+      sessionStorage.counterCart2 = 2;
+    }
+    if(sessionStorage.counterCart2 > 1){
+      sessionStorage.counterCart2 = 1;
+      window.alert("1 Meal per Date");
+    }else{
+      sessionStorage.cart2list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>"
+      $("#cart2list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart2()></i></p>");
+    }
 }
 
 function addToCart3(dishName) {
-    $counterCart3 += 1
-    sessionStorage.counterCart3 = $counterCart3
-        if(sessionStorage.counterCart3 == 1){
-          $counterCart3 -= 1;
-          sessionStorage.counterCart3 = $counterCart3
-          window.alert("1 Meal per Date");
-        }else{
-          sessionStorage.cart3list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>"
-          $("#cart3list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>");
-        }
+    $counterCart3 = 1
+    if(sessionStorage.counterCart3 == undefined){
+      sessionStorage.counterCart3 = 1;
+    }else{
+      sessionStorage.counterCart3 = 2;
+    }
+    if(sessionStorage.counterCart3 > 1){
+      sessionStorage.counterCart3 = 1;
+      window.alert("1 Meal per Date");
+    }else{
+      sessionStorage.cart3list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>"
+      $("#cart3list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart3()></i></p>");
+    }
 }
 
 function addToCart4(dishName) {
-    $counterCart4 += 1
-    sessionStorage.counterCart4 = $counterCart4
-        if(sessionStorage.counterCart4 == 1){
-          $counterCart4 -= 1;
-          sessionStorage.counterCart4 = $counterCart4
-          window.alert("1 Meal per Date");
-        }else{
-          sessionStorage.cart4list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>"
-          $("#cart4list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>");
-        }
+    $counterCart4 = 1
+    if(sessionStorage.counterCart4 == undefined){
+      sessionStorage.counterCart4 = 1;
+    }else{
+      sessionStorage.counterCart4 = 2;
+    }
+    if(sessionStorage.counterCart4 > 1){
+      sessionStorage.counterCart4 = 1;
+      window.alert("1 Meal per Date");
+    }else{
+      sessionStorage.cart4list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>"
+      $("#cart4list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart4()></i></p>");
+    }
 }
 
 function addToCart5(dishName) {
-    $counterCart5 += 1
-    sessionStorage.counterCart5 = $counterCart5
-        if(sessionStorage.counterCart5 == 1){
-          $counterCart5 -= 1;
-          sessionStorage.counterCart5 = $counterCart5
-          window.alert("1 Meal per Date");
-        }else{
-          sessionStorage.cart5list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>"
-          $("#cart5list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>");
-        }
+    $counterCart5 = 1
+    if(sessionStorage.counterCart5 == undefined){
+      sessionStorage.counterCart5 = 1;
+    }else{
+      sessionStorage.counterCart5 = 2;
+    }
+    if(sessionStorage.counterCart5 > 1){
+      sessionStorage.counterCart5 = 1;
+      window.alert("1 Meal per Date");
+    }else{
+      sessionStorage.cart5list = "<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>"
+      $("#cart5list").append("<p>" + dishName  +"<i class='js-remove remove icon' onclick=removeDishCart5()></i></p>");
+    }
 }
 
 function removeDishCart1(){
   $('#cart1list').empty();
   $counterCart1 -= 1;
-  sessionStorage.counterCart1 = $counterCart1
+  delete sessionStorage.counterCart1;
 }
 
 function removeDishCart2(){
   $('#cart2list').empty();
   $counterCart2 -= 1;
-  sessionStorage.counterCart2 = $counterCart2
+  delete sessionStorage.counterCart2;
 }
 
 function removeDishCart3(){
   $('#cart3list').empty();
   $counterCart3 -= 1;
-  sessionStorage.counterCart3 = $counterCart3
+  delete sessionStorage.counterCart3;
 }
 
 function removeDishCart4(){
   $('#cart4list').empty();
   $counterCart4 -= 1;
-  sessionStorage.counterCart4 = $counterCart4
+  delete sessionStorage.counterCart4;
 }
 
 function removeDishCart5(){
   $('#cart5list').empty();
   $counterCart5 -= 1;
-  sessionStorage.counterCart5 = $counterCart5
+  delete sessionStorage.counterCart5;
 }
 
 var $counterPaxCart1 = 0
